@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Recoleta';
+  src: url('../fonts/Recoleta-Regular_1.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src: url('../fonts/Recoleta-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
