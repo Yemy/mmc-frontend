@@ -522,8 +522,10 @@
     font-size: 16px;
   }
   .header .navbar-logo img {
-    max-width: 200px;
-    height: 44px;
+    max-width: 240px;
+    width: auto;
+    height: 60px;
+    object-fit: contain;
   }
   .header .search-box button {
     font-size: 25px;
