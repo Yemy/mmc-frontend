@@ -1,32 +1,11 @@
-/*
-Theme Name: MMC
-Theme URI: http://wowtheme7.com/wp/charifund/
-Author: Wowtheme7
-Author URI: https://themeforest.net/user/wowtheme7
-Description: MMC - Charity WordPress Theme developed specifically for all types of charity, donation.
-Version: 2.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
-Text Domain: charifund
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-Tested up to: 6.6
-Requires PHP:7.1
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-0MMC is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 :root {
-  --main-color-one: #046a58;
-  --heading-color: #122f2a;
+  --main-color-one: #1d8cc1;
+  --heading-color: #246092;
   --paragraph-color: #667471;
   --animate-delay: 0.3s;
-  --secondary-colorx: #122f2a;
+  --secondary-colorx: #207bb2;
   --main-color2: #6b5103;
   --border-color1: inherit;
   --border-color1: #e0e0e0;
