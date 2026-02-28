@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ program.title }} - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<!-- Banner section -->
+<section class="common-banner">
+    <div class="container">
+       <div class="row">
+          <div class="common-banner__content text-center">
+             <span class="sub-title">
+             <i class="icon-donation"></i>Program Details</span>              
+             <h2 class="title-animation">{{ program.title }}</h2>                  
+          </div>
+       </div>
+    </div>
+    <div class="banner-bg">
+       <img src="{% static 'images/bc_banner-bg.png' %}" alt="Image">
+    </div>
+    <div class="shape">
+       <img src="{% static 'images/shape.png' %}" alt="Image">
+    </div>
+    <div class="sprade" data-aos="zoom-in" data-aos-duration="1000">
+       <img src="{% static 'images/sprade-base.png' %}" alt="Image" class="base-img">
+    </div>
+</section>
+
+<!-- Program Details Section -->
+<section class="program-details section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="program-details__content">
+                    <div class="thumb mb-4">
+                        {% if program.image %}
+                        <img src="{{ program.image.url }}" alt="{{ program.title }}" class="img-fluid rounded">
+                        {% else %}
+                        <img src="{% static 'images/poster-1.png' %}" alt="{{ program.title }}" class="img-fluid rounded">
+                        {% endif %}
+                    </div>
+                    
+                    <div class="meta mb-3">
+                        <span class="date"><i class="far fa-calendar-alt"></i> Created on {{ program.created_at|date:"d M Y" }}</span>
+                    </div>
+
+                    <h2 class="title mb-4">{{ program.title }}</h2>
+                    
+                    <div class="description mb-5">
+                        {{ program.description|linebreaks }}
+                    </div>
+
+                    <div class="summary-box p-4 bg-light rounded mb-5">
+                        <h4>Program Summary</h4>
+                        <p>{{ program.description|truncatewords:50 }}</p>
+                    </div>
+
+                    <div class="row images-grid">
+                        <!-- Additional images can be added here if needed -->
+                        <div class="col-md-6 mb-4">
+                             <img src="{% static 'images/three-10.png' %}" alt="Detail" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6 mb-4">
+                             <img src="{% static 'images/two-11.png' %}" alt="Detail" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <aside class="sidebar p-4 bg-white shadow-sm rounded">
+                    <div class="donation-stats">
+                        <div class="cause__progress progress-bar-single mb-4">
+                            <div class="cause-progress__intro">
+                                <p><span>Donation Progress</span>
+                                    <span class="percent-value">{{ program.get_percentage|floatformat:0 }}%</span>
+                                </p>
+                            </div>
+                            <div class="cause-progress__bar">
+                                <div class="progress-bar-wrapper" data-percent="{{ program.get_percentage|floatformat:0 }}%">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-percent" style="width:{{ program.get_percentage|floatformat:0 }}%">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cause-progress__goal">
+                                <p>Raised: <span class="raised-val">${{ program.raised|default:"0" }}</span></p>
+                                <p>Goal: <span class="goal-val">${{ program.goal|default:"0" }}</span></p>
+                            </div>
+                        </div>
+                        <a href="{% url 'web:contact' %}" class="btn--primary w-100 text-center">Donate to this cause <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="recent-posts mt-5">
+                        <h5>Latest Blog Posts</h5>
+                        <ul class="list-unstyled">
+                            {% for post in latest_posts %}
+                            <li class="mb-3">
+                                <a href="{% url 'web:blog_detail' post.slug %}" class="d-flex align-items-center">
+                                    {% if post.image %}
+                                    <img src="{{ post.image.url }}" alt="" width="60" class="me-3 rounded">
+                                    {% endif %}
+                                    <span>{{ post.title }}</span>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

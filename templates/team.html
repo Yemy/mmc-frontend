@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Our Team - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<!-- Banner section -->
+<section class="common-banner">
+    <div class="container">
+       <div class="row">
+          <div class="common-banner__content text-center">
+             <span class="sub-title">
+             <i class="icon-donation"></i>Meet Our Dedicated Team</span>              
+             <h2 class="title-animation">Our Team</h2>                  
+          </div>
+       </div>
+    </div>
+    <div class="banner-bg">
+       <img src="{% static 'images/bc_banner-bg.png' %}" alt="Image">
+    </div>
+    <div class="shape">
+       <img src="{% static 'images/shape.png' %}" alt="Image">
+    </div>
+    <div class="sprade" data-aos="zoom-in" data-aos-duration="1000">
+       <img src="{% static 'images/sprade-base.png' %}" alt="Image" class="base-img">
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team section-padding">
+    <div class="container">
+        <div class="row">
+            {% for member in team_members %}
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="team__single-wrapper">
+                    <div class="team__single van-tilt">
+                        <div class="team__single-thumb">
+                            {% if member.photo %}
+                            <img src="{{ member.photo.url }}" alt="{{ member.name }}">
+                            {% else %}
+                            <img src="{% static 'images/one-9.png' %}" alt="{{ member.name }}">
+                            {% endif %}
+                            <div class="team__icons">
+                                <div class="team__single-content__icon">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <div class="team__single__thumb-social">
+                                    <ul>
+                                        {% if member.facebook %}
+                                        <li><a href="{{ member.facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+                                        {% endif %}
+                                        {% if member.twitter %}
+                                        <li><a href="{{ member.twitter }}"><i class="fab fa-x-twitter"></i></a></li>
+                                        {% endif %}
+                                        {% if member.linkedin %}
+                                        <li><a href="{{ member.linkedin }}"><i class="fab fa-linkedin-in"></i></a></li>
+                                        {% endif %}
+                                        {% if member.instagram %}
+                                        <li><a href="{{ member.instagram }}"><i class="fab fa-instagram"></i></a></li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team__single-content">
+                            <h6><a href="#">{{ member.name }}</a></h6>
+                            <p>{{ member.role }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No team members added yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

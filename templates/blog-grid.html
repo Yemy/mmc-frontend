@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Blog - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<!-- Banner section -->
+<section class="common-banner">
+    <div class="container">
+       <div class="row">
+          <div class="common-banner__content text-center">
+             <span class="sub-title">
+             <i class="icon-donation"></i>Our Latest News</span>              
+             <h2 class="title-animation">Blog Grid</h2>                  
+          </div>
+       </div>
+    </div>
+    <div class="banner-bg">
+       <img src="{% static 'images/bc_banner-bg.png' %}" alt="Image">
+    </div>
+    <div class="shape">
+       <img src="{% static 'images/shape.png' %}" alt="Image">
+    </div>
+    <div class="sprade" data-aos="zoom-in" data-aos-duration="1000">
+       <img src="{% static 'images/sprade-base.png' %}" alt="Image" class="base-img">
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section class="blog blog-two section-padding">
+    <div class="container">
+        <div class="row gutter-40">
+            {% for post in posts %}
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="blog__single-wrapper pb-3">
+                    <div class="blog__single van-tilt">
+                        <div class="blog__single-inner">
+                            <div class="blog__single-meta">
+                                <p><i class="icon-user"></i>{{ post.author|default:"Admin" }}</p>
+                                <p><i class="icon-calendar"></i>{{ post.published_date|date:"d M Y" }}</p>
+                            </div>
+                            <div class="blog__single-content">
+                                <h5><a href="{% url 'web:blog_detail' post.slug %}">{{ post.title }}</a></h5>
+                                <p>{{ post.excerpt|default:post.content|truncatewords:20 }}</p>
+                            </div>
+                            <div class="blog__single-thumb">
+                                <a href="{% url 'web:blog_detail' post.slug %}">
+                                    {% if post.image %}
+                                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                                    {% else %}
+                                    <img src="{% static 'images/four-7.png' %}" alt="{{ post.title }}">
+                                    {% endif %}
+                                </a>
+                                <div class="tag">
+                                    <a href="#"><i class="fa-solid fa-tags"></i> {{ post.category.name|default:"General" }}</a>
+                                </div>
+                            </div>
+                            <div class="blog__single-cta">
+                                <a href="{% url 'web:blog_detail' post.slug %}" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No blog posts found.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if is_paginated %}
+        <div class="blog-pagination text-center mt-5">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </a>
+                </li>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

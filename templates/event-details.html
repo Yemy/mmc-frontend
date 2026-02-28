@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ event.title }} - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<!-- Banner section -->
+<section class="common-banner">
+    <div class="container">
+       <div class="row">
+          <div class="common-banner__content text-center">
+             <span class="sub-title">
+             <i class="icon-donation"></i>Event Details</span>              
+             <h2 class="title-animation">{{ event.title }}</h2>                  
+          </div>
+       </div>
+    </div>
+    <div class="banner-bg">
+       <img src="{% static 'images/bc_banner-bg.png' %}" alt="Image">
+    </div>
+    <div class="shape">
+       <img src="{% static 'images/shape.png' %}" alt="Image">
+    </div>
+    <div class="sprade" data-aos="zoom-in" data-aos-duration="1000">
+       <img src="{% static 'images/sprade-base.png' %}" alt="Image" class="base-img">
+    </div>
+</section>
+
+<!-- Event Details Section -->
+<section class="event-details section-padding">
+    <div class="container">
+        <div class="row gutter-60">
+            <div class="col-lg-8">
+                <div class="event-details__content">
+                    <div class="thumb mb-5 border-radius-20 overflow-hidden shadow">
+                        {% if event.image %}
+                        <img src="{{ event.image.url }}" alt="{{ event.title }}" class="img-fluid w-100">
+                        {% else %}
+                        <img src="{% static 'images/one-10.png' %}" alt="{{ event.title }}" class="img-fluid w-100">
+                        {% endif %}
+                    </div>
+                    
+                    <div class="meta d-flex flex-wrap mb-4 py-3 border-top border-bottom">
+                        <div class="meta-item me-5 mb-2">
+                            <i class="far fa-calendar-alt text-primary me-2"></i>
+                            <span class="fw-bold">Date:</span> {{ event.date|date:"d M, Y" }}
+                        </div>
+                        <div class="meta-item me-5 mb-2">
+                            <i class="far fa-clock text-primary me-2"></i>
+                            <span class="fw-bold">Time:</span> {{ event.time|time:"H:i" }}
+                        </div>
+                        <div class="meta-item mb-2">
+                            <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                            <span class="fw-bold">Location:</span> {{ event.location }}
+                        </div>
+                    </div>
+
+                    <h2 class="title-animation mb-4">{{ event.title }}</h2>
+                    <div class="content text-muted lh-lg">
+                        {{ event.description|linebreaks }}
+                    </div>
+
+                    <div class="event-map mt-5 rounded overflow-hidden shadow-sm">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.54712534063!2d38.751244!3d9.022736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24a40!2sAddis%20Ababa!5e0!3m2!1sen!2set!4v1647417540000!5m2!1sen!2set" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <aside class="event-sidebar sticky-top pt-4" style="top: 100px;">
+                    <div class="registration-box p-5 bg-primary text-white rounded shadow van-tilt">
+                        <h4 class="text-white mb-4">Event Registration</h4>
+                        <p class="mb-4">Interested in participating? Register now to secure your spot.</p>
+                        <form action="{% url 'contact' %}" method="get">
+                            <button type="submit" class="btn--white w-100 py-3">Register Now <i class="fas fa-arrow-right ms-2"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="social-share mt-5 p-4 bg-light rounded text-center">
+                        <h6 class="mb-3">Share this Event:</h6>
+                        <div class="share-links">
+                            <a href="#" class="me-3 fs-4 text-primary"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="me-3 fs-4 text-info"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="me-3 fs-4 text-danger"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="fs-4 text-dark"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

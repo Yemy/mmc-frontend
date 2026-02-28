@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ post.title }} - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<!-- Banner section -->
+<section class="common-banner">
+    <div class="container">
+       <div class="row">
+          <div class="common-banner__content text-center">
+             <span class="sub-title">
+             <i class="icon-donation"></i>Blog Details</span>              
+             <h2 class="title-animation">{{ post.title }}</h2>                  
+          </div>
+       </div>
+    </div>
+    <div class="banner-bg">
+       <img src="{% static 'images/bc_banner-bg.png' %}" alt="Image">
+    </div>
+    <div class="shape">
+       <img src="{% static 'images/shape.png' %}" alt="Image">
+    </div>
+    <div class="sprade" data-aos="zoom-in" data-aos-duration="1000">
+       <img src="{% static 'images/sprade-base.png' %}" alt="Image" class="base-img">
+    </div>
+</section>
+
+<!-- Blog Details Section -->
+<section class="blog-details section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <article class="blog-single-content-wrap">
+                    <div class="thumbnail mb-4">
+                        {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid rounded">
+                        {% else %}
+                        <img src="{% static 'images/four-7.png' %}" alt="{{ post.title }}" class="img-fluid rounded">
+                        {% endif %}
+                    </div>
+                    
+                    <ul class="post-meta mb-3">
+                        <li><i class="fa-regular fa-user"></i> <span>Written by:</span> <span class="user">{{ post.author|default:"Admin" }}</span></li>
+                        <li><i class="fa-solid fa-calendar-days"></i> {{ post.published_date|date:"F d, Y" }}</li>
+                    </ul>
+
+                    <div class="entry-content">
+                        <section class="blog-main cm-details p-0">
+                            <div class="cm-details__content">
+                                <h3 class="title-animation mb-4">{{ post.title }}</h3>
+                                <div class="post-text">
+                                    {{ post.content|safe }}
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="blog-details-footer d-flex justify-content-between align-items-center mt-5 p-4 bg-light rounded">
+                        <div class="left">
+                            <h5 class="title d-inline-block me-2">Category:</h5>
+                            <ul class="tags d-inline-block list-unstyled m-0">
+                                <li class="d-inline-block"> <a href="#" class="btn btn-sm btn-outline-secondary">{{ post.category.name|default:"General" }}</a></li>
+                            </ul>
+                        </div>
+                        <div class="right">
+                            <h5 class="title d-inline-block me-2">Share:</h5>
+                            <ul class="social-icon d-inline-block list-unstyled m-0">
+                                <li class="d-inline-block me-2"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="d-inline-block me-2"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li class="d-inline-block me-2"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="single-post-navigation d-flex justify-content-between mt-5 pt-4 border-top">
+                        <div class="prev-post">
+                            {% if post.get_previous_by_published_date %}
+                            <a href="{% url 'web:blog_detail' post.get_previous_by_published_date.slug %}">
+                                <i class="fa fa-arrow-left"></i> Prev Post
+                            </a>
+                            {% endif %}
+                        </div>
+                        <div class="next-post text-end">
+                            {% if post.get_next_by_published_date %}
+                            <a href="{% url 'web:blog_detail' post.get_next_by_published_date.slug %}">
+                                Next Post <i class="fa fa-arrow-right"></i>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Comments section (simplified) -->
+                <div id="comments" class="comments-area mt-5 pt-5 border-top">
+                    <div id="respond" class="comment-respond">
+                        <h3 id="reply-title" class="comment-reply-title">Leave A Comment</h3>
+                        <form action="#" method="post" id="commentform" class="comment-form mt-4">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" name="author" class="form-control" placeholder="Name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <textarea name="comment" class="form-control" placeholder="Comment..." rows="5" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Post Comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Shop - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<!-- Banner section -->
+<section class="common-banner">
+    <div class="container">
+       <div class="row">
+          <div class="common-banner__content text-center">
+             <span class="sub-title">
+             <i class="icon-donation"></i>Support Our Mission</span>              
+             <h2 class="title-animation">Our <span>Shop</span></h2>                  
+          </div>
+       </div>
+    </div>
+    <div class="banner-bg">
+       <img src="{% static 'images/bc_banner-bg.png' %}" alt="Image">
+    </div>
+    <div class="shape">
+       <img src="{% static 'images/shape.png' %}" alt="Image">
+    </div>
+    <div class="sprade" data-aos="zoom-in" data-aos-duration="1000">
+       <img src="{% static 'images/sprade-base.png' %}" alt="Image" class="base-img">
+    </div>
+</section>
+
+<!-- Shop Section -->
+<section class="shop-section section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shop-toolbar d-flex justify-content-between align-items-center mb-5 p-4 bg-light rounded shadow-sm">
+                    <p class="mb-0">Showing {{ products.count }} results</p>
+                    <div class="sorting">
+                        <select class="form-select border-0 bg-white" aria-label="Sort by">
+                            <option selected>Default sorting</option>
+                            <option value="1">Price: Low to High</option>
+                            <option value="2">Price: High to Low</option>
+                            <option value="3">Newest First</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gutter-24">
+            {% for product in products %}
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                <div class="product-card bg-white shadow-sm rounded overflow-hidden h-100 van-tilt">
+                    <div class="product-card__thumb position-relative">
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid w-100">
+                        {% else %}
+                        <img src="{% static 'images/poster_2_up.jpg' %}" alt="{{ product.name }}" class="img-fluid w-100">
+                        {% endif %}
+                        
+                        {% if product.sale_price %}
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3">Sale!</span>
+                        {% endif %}
+                        
+                        <div class="product-card__actions position-absolute bottom-0 start-50 translate-middle-x mb-3 opacity-0 transition">
+                            <a href="{% url 'web:contact' %}?interest={{ product.name }}" class="btn--primary px-4 py-2 rounded-pill shadow">Buy Now</a>
+                        </div>
+                    </div>
+                    <div class="product-card__content p-4 text-center">
+                        <h5 class="mb-2"><a href="#" class="text-dark">{{ product.name }}</a></h5>
+                        <div class="price fw-bold text-primary">
+                            {% if product.sale_price %}
+                            <span class="text-muted text-decoration-line-through me-2">${{ product.price }}</span>
+                            <span>${{ product.sale_price }}</span>
+                            {% else %}
+                            <span>${{ product.price }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5">
+                <div class="empty-state">
+                    <i class="fas fa-shopping-bag fs-1 text-muted mb-3 d-block"></i>
+                    <h3>No Products Found</h3>
+                    <p class="text-muted">Currently our shop is empty. Please check back later.</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<style>
+    .product-card:hover .product-card__actions {
+        opacity: 1 !important;
+        bottom: 20px !important;
+    }
+    .transition {
+        transition: all 0.3s ease;
+    }
+</style>
+{% endblock %}
