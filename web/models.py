@@ -98,15 +98,73 @@ class Partner(models.Model):
         return self.name
 
 class Volunteer(models.Model):
+    GENDER_CHOICES = (
+        ('male', 'Male'),
+        ('female', 'Female'),
+        ('other', 'Other'),
+    )
+    DURATION_CHOICES = (
+        ('short', 'Short-term'),
+        ('long', 'Long-term'),
+    )
+    
+    # 1. Personal Information
     full_name = models.CharField(max_length=255)
-    email = models.EmailField()
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES, blank=True, null=True)
+    date_of_birth = models.DateField(blank=True, null=True)
+    nationality = models.CharField(max_length=100, blank=True, null=True)
     phone = models.CharField(max_length=20)
-    address = models.CharField(max_length=255, blank=True, null=True)
-    message = models.TextField()
+    email = models.EmailField()
+    address = models.CharField(max_length=255, blank=True, null=True, help_text="City/Region")
+    
+    # 2. Education & Professional Background
+    education_level = models.CharField(max_length=255, blank=True, null=True)
+    field_of_study = models.CharField(max_length=255, blank=True, null=True)
+    occupation = models.CharField(max_length=255, blank=True, null=True)
+    organization = models.CharField(max_length=255, blank=True, null=True)
+    
+    # 3. Volunteering Interests
+    interests = models.TextField(help_text="e.g. sGBV prevention, IDP support, Media, etc.", blank=True, null=True)
+    
+    # 4. Skills and Experience
+    skills = models.TextField(blank=True, null=True)
+    experience = models.TextField(blank=True, null=True, help_text="Previous volunteer or humanitarian experience")
+    
+    # 5. Availability
+    duration = models.CharField(max_length=10, choices=DURATION_CHOICES, default='short')
+    available_times = models.TextField(blank=True, null=True)
+    preferred_location = models.CharField(max_length=255, blank=True, null=True)
+    
+    # 6. Motivation
+    motivation = models.TextField(blank=True, null=True)
+    
+    # 7. Ethical Commitment
+    agreed_to_conduct = models.BooleanField(default=False, help_text="Agreed to respect confidentiality and MMC code of conduct")
+    
+    # 8. Emergency Contact
+    emergency_contact_name = models.CharField(max_length=255, blank=True, null=True)
+    emergency_contact_relation = models.CharField(max_length=100, blank=True, null=True)
+    emergency_contact_phone = models.CharField(max_length=20, blank=True, null=True)
+    
     submitted_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.full_name
+
+class BankAccount(models.Model):
+    bank_name = models.CharField(max_length=255)
+    account_name = models.CharField(max_length=255, default="Mulu Mesfin Charity")
+    account_number = models.CharField(max_length=50)
+    swift_code = models.CharField(max_length=50, blank=True, null=True)
+    branch = models.CharField(max_length=255, blank=True, null=True)
+    is_active = models.BooleanField(default=True)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return f"{self.bank_name} - {self.account_number}"
 
 class Document(models.Model):
     DOC_TYPES = (

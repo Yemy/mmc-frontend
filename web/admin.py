@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import (
     SiteSettings, Program, TeamMember, Testimonial, 
     Partner, Volunteer, Document, Event, 
-    GalleryImage, BlogCategory, BlogPost, FAQ, Product
+    GalleryImage, BlogCategory, BlogPost, FAQ, Product, BankAccount
 )
 
 @admin.register(SiteSettings)
@@ -37,9 +37,38 @@ class PartnerAdmin(admin.ModelAdmin):
 
 @admin.register(Volunteer)
 class VolunteerAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'email', 'phone', 'submitted_at')
+    list_display = ('full_name', 'email', 'phone', 'duration', 'submitted_at')
+    list_filter = ('gender', 'duration', 'submitted_at', 'agreed_to_conduct')
     readonly_fields = ('submitted_at',)
-    search_fields = ('full_name', 'email')
+    search_fields = ('full_name', 'email', 'phone')
+    
+    fieldsets = (
+        ('Personal Information', {
+            'fields': ('full_name', 'gender', 'date_of_birth', 'nationality', 'phone', 'email', 'address')
+        }),
+        ('Education & Background', {
+            'fields': ('education_level', 'field_of_study', 'occupation', 'organization')
+        }),
+        ('Interests & Skills', {
+            'fields': ('interests', 'skills', 'experience')
+        }),
+        ('Availability & Motivation', {
+            'fields': ('duration', 'available_times', 'preferred_location', 'motivation')
+        }),
+        ('Emergency Contact & Commitment', {
+            'fields': ('emergency_contact_name', 'emergency_contact_relation', 'emergency_contact_phone', 'agreed_to_conduct')
+        }),
+        ('Metadata', {
+            'fields': ('submitted_at',),
+            'classes': ('collapse',)
+        }),
+    )
+
+@admin.register(BankAccount)
+class BankAccountAdmin(admin.ModelAdmin):
+    list_display = ('bank_name', 'account_name', 'account_number', 'is_active', 'order')
+    list_editable = ('is_active', 'order')
+    search_fields = ('bank_name', 'account_number')
 
 @admin.register(Document)
 class DocumentAdmin(admin.ModelAdmin):

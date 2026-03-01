@@ -154,7 +154,7 @@ html,body{font-family:Nunito Sans,sans-serif;}p,body{font-size:16px;font-weight:
         --template-bg: #ffffff;
         --template-color: #667471;
 
-        // colors
+        /* colors */
         --white: #ffffff;
         --black: #000000;
         --primary-color:#1d7cb4;
@@ -166,10 +166,10 @@ html,body{font-family:Nunito Sans,sans-serif;}p,body{font-size:16px;font-weight:
         --senary-color: #d9d9d9;
         --hover-color: #6b5103;
 
-        // transitions
+        /* transitions */
         --transition: all 0.5s ease;
 
-        // box shadow
+        /* box shadow */
         --shadow: 0px 10px 25px 0px rgba(37, 42, 52, 0.08);
         --shadow-secondary: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
         --shadow-tertiary: 0px 4px 8px 0px rgba(0, 0, 0, 0.07);
@@ -251,10 +251,10 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 					}
 				}
 			</style>
-			<link rel="icon" href="images/logo.jpeg" sizes="32x32">
-<link rel="icon" href="images/logo.jpeg" sizes="192x192">
-<link rel="apple-touch-icon" href="images/logo.jpeg">
-<meta name="msapplication-TileImage" content="https://mulumesfincharity.org/images/logo.jpeg">
+			<link rel="icon" href="{% static 'images/logo.jpeg' %}" sizes="32x32">
+<link rel="icon" href="{% static 'images/logo.jpeg' %}" sizes="192x192">
+<link rel="apple-touch-icon" href="{% static 'images/logo.jpeg' %}">
+<meta name="msapplication-TileImage" content="https://mulumesfincharity.org/{% static 'images/logo.jpeg' %}">
 </head>
 <body class="home wp-singular page-template page-template-elementor_header_footer page page-id-8 wp-embed-responsive wp-theme-charifund theme-charifund woocommerce-no-js give-test-mode give-page elementor-default elementor-template-full-width elementor-kit-7 elementor-page elementor-page-8">
 
@@ -410,7 +410,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 
 
                                 
-                                                                 <a href="{% url 'web:contact' %}" class="btn--primary">Donate Now<i class="fa-solid fa-arrow-right"></i></a>
+                                                                 <a href="{% url 'web:donate' %}" class="btn--primary">Donate Now<i class="fa-solid fa-arrow-right"></i></a>
                                 
                               </div>
                               <button class="open-offcanvas-nav d-flex d-xl-none" aria-label="toggle mobile menu" title="open offcanvas menu">
@@ -717,7 +717,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 <script type="text/javascript" src="{% static 'js/frontend.min.js' %}" id="elementor-frontend-js"></script>
 <script type="text/javascript" src="{% static 'js/swiper.min.js' %}" id="swiper-js"></script>
 <script id="wp-emoji-settings" type="application/json">
-{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://mulumesfincharity.org/wp-includes/js/wp-emoji-release.min.js?ver=6.9.1"}}
+{"baseUrl":"https://s.w.org/{% static 'images/core/emoji/17.0.2/72x72/' %}","ext":".png","svgUrl":"https://s.w.org/{% static 'images/core/emoji/17.0.2/svg/' %}","svgExt":".svg","source":{"concatemoji":"https://mulumesfincharity.org/wp-includes/js/wp-emoji-release.min.js?ver=6.9.1"}}
 </script>
 <script type="module">
 /* <![CDATA[ */

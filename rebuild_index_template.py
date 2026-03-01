@@ -65,6 +65,10 @@ def wrap_data_bg(m):
 
 content = re.sub(r'data-bg="(images/[^"]+)"', wrap_data_bg, content)
 
+# ── 5b. Remove the GiveWP "No email logo set for this campaign." paragraph
+# This is a GiveWP plugin artifact that appears in the source HTML but should be hidden
+content = re.sub(r'<p>No email logo set for this campaign\.</p>\s*', '', content)
+
 # ── 6. Fix href links to known pages
 content = content.replace('href="https://mulumesfincharity.org/causes/"',
                            "href=\"{% url 'web:programs' %}\"")

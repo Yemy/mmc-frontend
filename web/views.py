@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from .models import (
     Program, TeamMember, Testimonial, Partner, 
-    Volunteer, Document, BlogCategory, BlogPost, SiteSettings, FAQ, Event, Product
+    Volunteer, Document, BlogCategory, BlogPost, SiteSettings, FAQ, Event, Product, BankAccount
 )
 
 class IndexView(TemplateView):
@@ -40,9 +40,23 @@ class ContactView(TemplateView):
 
 class VolunteerCreateView(CreateView):
     model = Volunteer
-    template_name = 'volunteer_registration.html' # This template may need to be created if not exists
-    fields = ['full_name', 'email', 'phone', 'address', 'message']
+    template_name = 'volunteer_registration.html'
+    fields = [
+        'full_name', 'gender', 'date_of_birth', 'nationality', 'phone', 'email', 'address',
+        'education_level', 'field_of_study', 'occupation', 'organization',
+        'interests', 'skills', 'experience',
+        'duration', 'available_times', 'preferred_location', 'motivation',
+        'agreed_to_conduct', 'emergency_contact_name', 'emergency_contact_relation', 'emergency_contact_phone'
+    ]
     success_url = reverse_lazy('web:index')
+
+class DonateView(ListView):
+    model = BankAccount
+    template_name = 'donate.html'
+    context_object_name = 'bank_accounts'
+
+    def get_queryset(self):
+        return BankAccount.objects.filter(is_active=True)
 
 class DocumentListView(ListView):
     model = Document

@@ -74,7 +74,7 @@
 											
 					<div class="swiper-slide">
 						<div class="banner-two__slider-single">
-							<div class="banner-two__slider-bg" style="background-image:url("{% static 'images/banner-two-bg.png' %}"); ?>"></div>
+							<div class="banner-two__slider-bg" style="background-image:url('{% static 'images/banner-two-bg.png' %}');"></div>
 							<div class="container">
 								<div class="row">
 									<div class="col-12 col-md-9 col-lg-7 col-xxl-6">
@@ -95,7 +95,7 @@
 											
 					<div class="swiper-slide">
 						<div class="banner-two__slider-single">
-							<div class="banner-two__slider-bg" style="background-image:url("{% static 'images/banner-one-bg.png' %}"); ?>"></div>
+							<div class="banner-two__slider-bg" style="background-image:url('{% static 'images/banner-one-bg.png' %}');"></div>
 							<div class="container">
 								<div class="row">
 									<div class="col-12 col-md-9 col-lg-7 col-xxl-6">
@@ -313,7 +313,7 @@
 						
 						<div class="swiper-slide">
 							<div class="difference__single-wrapper">
-							<div class="difference__single difference__single-first" style="background-image:url("{% static 'images/cat_bg-one-1.png' %}"); ?>">
+							<div class="difference__single difference__single-first" style="background-image:url('{% static 'images/cat_bg-one-1.png' %}');">
 								<div class="difference__single-thumb">
 									<i class=" icon-education"></i>
 								</div>
@@ -327,7 +327,7 @@
 							
 						<div class="swiper-slide">
 							<div class="difference__single-wrapper">
-							<div class="difference__single difference__single-second" style="background-image:url("{% static 'images/cat_bg-two.png' %}"); ?>">
+							<div class="difference__single difference__single-second" style="background-image:url('{% static 'images/cat_bg-two.png' %}');">
 								<div class="difference__single-thumb">
 									<i class=" icon-food"></i>
 								</div>
@@ -341,7 +341,7 @@
 							
 						<div class="swiper-slide">
 							<div class="difference__single-wrapper">
-							<div class="difference__single difference__single-third" style="background-image:url("{% static 'images/cat_bg-three.png' %}"); ?>">
+							<div class="difference__single difference__single-third" style="background-image:url('{% static 'images/cat_bg-three.png' %}');">
 								<div class="difference__single-thumb">
 									<i class=" icon-health"></i>
 								</div>
@@ -355,7 +355,7 @@
 							
 						<div class="swiper-slide">
 							<div class="difference__single-wrapper">
-							<div class="difference__single difference__single-first" style="background-image:url("{% static 'images/cat_bg-one-1.png' %}"); ?>">
+							<div class="difference__single difference__single-first" style="background-image:url('{% static 'images/cat_bg-one-1.png' %}');">
 								<div class="difference__single-thumb">
 									<i class=" icon-education"></i>
 								</div>
@@ -369,7 +369,7 @@
 							
 						<div class="swiper-slide">
 							<div class="difference__single-wrapper">
-							<div class="difference__single difference__single-second" style="background-image:url("{% static 'images/cat_bg-two.png' %}"); ?>">
+							<div class="difference__single difference__single-second" style="background-image:url('{% static 'images/cat_bg-two.png' %}');">
 								<div class="difference__single-thumb">
 									<i class=" icon-food"></i>
 								</div>
@@ -383,7 +383,7 @@
 							
 						<div class="swiper-slide">
 							<div class="difference__single-wrapper">
-							<div class="difference__single difference__single-third" style="background-image:url("{% static 'images/cat_bg-three.png' %}"); ?>">
+							<div class="difference__single difference__single-third" style="background-image:url('{% static 'images/cat_bg-three.png' %}');">
 								<div class="difference__single-thumb">
 									<i class=" icon-health"></i>
 								</div>
@@ -591,7 +591,7 @@
 
 	<div class="help p-0 m-0">
 		<div class="help__content-cta cta m-0">
-			<a href="https://mulumesfincharity.org/about-us/" class="btn--primary">More About Us</a>
+			<a href="{% url 'web:about' %}" class="btn--primary">More About Us</a>
 		</div>
 	</div>
 
@@ -729,12 +729,12 @@
                             <div class="cause__slider-inner">
                                 <div class="cause__slider-single">
                                     <div class="thumb">
-                                        <p>No email logo set for this campaign.</p>																					<a href="https://mulumesfincharity.org/donations/help-for-food/">
+                                        <a href="{% url 'web:donate' %}">
 												<img decoding="async" src="{% static 'images/1.png' %}" alt="Image">
 											</a>
 										                                    </div>
                                     <div class="content">
-                                        <h6><a href="https://mulumesfincharity.org/donations/help-for-food/">Help For Food</a></h6>
+                                        <h6><a href="{% url 'web:donate' %}">Help For Food</a></h6>
 										                                        	<p>Lorem ipsum dolor sit amet, consete sadipscing elitr, sed diam nonum </p>
 										                                    </div>
                                                                         <div class="cause__slider-cta">
@@ -758,7 +758,7 @@
                                             </div>
                                         </div>
                                         <div class="cause__cta">
-                                            <a href="https://mulumesfincharity.org/donations/help-for-food/" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
+                                            <a href="{% url 'web:donate' %}" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -769,12 +769,12 @@
                             <div class="cause__slider-inner">
                                 <div class="cause__slider-single">
                                     <div class="thumb">
-                                        <p>No email logo set for this campaign.</p>																					<a href="https://mulumesfincharity.org/donations/give-health-support/">
+                                        <a href="{% url 'web:donate' %}">
 												<img decoding="async" src="{% static 'images/2.png' %}" alt="Image">
 											</a>
 										                                    </div>
                                     <div class="content">
-                                        <h6><a href="https://mulumesfincharity.org/donations/give-health-support/">Give health support</a></h6>
+                                        <h6><a href="{% url 'web:donate' %}">Give health support</a></h6>
 										                                        	<p>Lorem ipsum dolor sit amet, consete sadipscing elitr, sed diam nonum </p>
 										                                    </div>
                                                                         <div class="cause__slider-cta">
@@ -798,7 +798,7 @@
                                             </div>
                                         </div>
                                         <div class="cause__cta">
-                                            <a href="https://mulumesfincharity.org/donations/give-health-support/" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
+                                            <a href="{% url 'web:donate' %}" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -809,12 +809,12 @@
                             <div class="cause__slider-inner">
                                 <div class="cause__slider-single">
                                     <div class="thumb">
-                                        <p>No email logo set for this campaign.</p>																					<a href="https://mulumesfincharity.org/donations/children-we-work-with/">
+                                        <a href="{% url 'web:donate' %}">
 												<img decoding="async" src="{% static 'images/3.png' %}" alt="Image">
 											</a>
 										                                    </div>
                                     <div class="content">
-                                        <h6><a href="https://mulumesfincharity.org/donations/children-we-work-with/">Children we work with</a></h6>
+                                        <h6><a href="{% url 'web:donate' %}">Children we work with</a></h6>
 										                                        	<p>Lorem ipsum dolor sit amet, consete sadipscing elitr, sed diam nonum </p>
 										                                    </div>
                                                                         <div class="cause__slider-cta">
@@ -838,7 +838,7 @@
                                             </div>
                                         </div>
                                         <div class="cause__cta">
-                                            <a href="https://mulumesfincharity.org/donations/children-we-work-with/" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
+                                            <a href="{% url 'web:donate' %}" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -849,12 +849,12 @@
                             <div class="cause__slider-inner">
                                 <div class="cause__slider-single">
                                     <div class="thumb">
-                                        <p>No email logo set for this campaign.</p>																					<a href="https://mulumesfincharity.org/donations/help-for-education/">
+                                        <a href="{% url 'web:donate' %}">
 												<img decoding="async" src="{% static 'images/4.png' %}" alt="Image">
 											</a>
 										                                    </div>
                                     <div class="content">
-                                        <h6><a href="https://mulumesfincharity.org/donations/help-for-education/">Help For Education</a></h6>
+                                        <h6><a href="{% url 'web:donate' %}">Help For Education</a></h6>
 										                                        	<p>Lorem ipsum dolor sit amet, consete sadipscing elitr, sed diam nonum</p>
 										                                    </div>
                                                                         <div class="cause__slider-cta">
@@ -878,7 +878,7 @@
                                             </div>
                                         </div>
                                         <div class="cause__cta">
-                                            <a href="https://mulumesfincharity.org/donations/help-for-education/" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
+                                            <a href="{% url 'web:donate' %}" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -889,12 +889,12 @@
                             <div class="cause__slider-inner">
                                 <div class="cause__slider-single">
                                     <div class="thumb">
-                                        <p>No email logo set for this campaign.</p>																					<a href="https://mulumesfincharity.org/donations/support-your-it-counts/">
+                                        <a href="{% url 'web:donate' %}">
 												<img decoding="async" src="{% static 'images/5.png' %}" alt="Image">
 											</a>
 										                                    </div>
                                     <div class="content">
-                                        <h6><a href="https://mulumesfincharity.org/donations/support-your-it-counts/">Support Your It Counts</a></h6>
+                                        <h6><a href="{% url 'web:donate' %}">Support Your It Counts</a></h6>
 										                                        	<p>Lorem ipsum dolor sit amet, consete sadipscing elitr, sed diam nonum </p>
 										                                    </div>
                                                                         <div class="cause__slider-cta">
@@ -918,7 +918,7 @@
                                             </div>
                                         </div>
                                         <div class="cause__cta">
-                                            <a href="https://mulumesfincharity.org/donations/support-your-it-counts/" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
+                                            <a href="{% url 'web:donate' %}" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -929,12 +929,12 @@
                             <div class="cause__slider-inner">
                                 <div class="cause__slider-single">
                                     <div class="thumb">
-                                        <p>No email logo set for this campaign.</p>																					<a href="https://mulumesfincharity.org/donations/people-child-trouble/">
+                                        <a href="{% url 'web:donate' %}">
 												<img decoding="async" src="{% static 'images/6.png' %}" alt="Image">
 											</a>
 										                                    </div>
                                     <div class="content">
-                                        <h6><a href="https://mulumesfincharity.org/donations/people-child-trouble/">People & Child Trouble</a></h6>
+                                        <h6><a href="{% url 'web:donate' %}">People & Child Trouble</a></h6>
 										                                        	<p>Lorem ipsum dolor sit amet, consete sadipscing elitr, sed diam nonum </p>
 										                                    </div>
                                                                         <div class="cause__slider-cta">
@@ -958,7 +958,7 @@
                                             </div>
                                         </div>
                                         <div class="cause__cta">
-                                            <a href="https://mulumesfincharity.org/donations/people-child-trouble/" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
+                                            <a href="{% url 'web:donate' %}" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -969,12 +969,12 @@
                             <div class="cause__slider-inner">
                                 <div class="cause__slider-single">
                                     <div class="thumb">
-                                        <p>No email logo set for this campaign.</p>																					<a href="https://mulumesfincharity.org/donations/consete-sadipscing-elitr/">
+                                        <a href="{% url 'web:donate' %}">
 												<img decoding="async" src="{% static 'images/7.png' %}" alt="Image">
 											</a>
 										                                    </div>
                                     <div class="content">
-                                        <h6><a href="https://mulumesfincharity.org/donations/consete-sadipscing-elitr/">consete sadipscing elitr,</a></h6>
+                                        <h6><a href="{% url 'web:donate' %}">consete sadipscing elitr,</a></h6>
 										                                        	<p>Lorem ipsum dolor sit amet, consete sadipscing elitr, sed diam nonum </p>
 										                                    </div>
                                                                         <div class="cause__slider-cta">
@@ -998,7 +998,7 @@
                                             </div>
                                         </div>
                                         <div class="cause__cta">
-                                            <a href="https://mulumesfincharity.org/donations/consete-sadipscing-elitr/" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
+                                            <a href="{% url 'web:donate' %}" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1043,7 +1043,7 @@
 							<h3 class="title-animation">Become a Volunteer</h3>
 						</div>
 						<div class="cta-s">
-							<a href="{% url 'web:contact' %}" aria-label="become a volunteer" title="become a volunteer" class="btn--tertiary">Contact Now</a>
+							<a href="{% url 'web:volunteer' %}" aria-label="become a volunteer" title="become a volunteer" class="btn--tertiary">Register Now</a>
 						</div>
 					</div>
 					<div class="cta-img">
@@ -1076,7 +1076,7 @@
 							<h3 class="title-animation">Make a Donation</h3>
 						</div>
 						<div class="cta-s">
-							<a href="{% url 'web:contact' %}" aria-label="make a donation" title="make a donation" class="btn--primary">Donate Now</a>
+							<a href="{% url 'web:donate' %}" aria-label="make a donation" title="make a donation" class="btn--primary">Donate Now</a>
 						</div>
 					</div>
 					<div class="cta-img">
@@ -1173,7 +1173,7 @@
 							</div>
 						</div>
 						<div class="team__single-content">
-							<h6><a href="https://mulumesfincharity.org/all-team/michel-fokluz/">Michel Fokluz</a></h6>
+							<h6><a href="{% url 'web:team' %}">Michel Fokluz</a></h6>
 							<p>Volunteer</p>
 						</div>
 					</div>
@@ -1229,7 +1229,7 @@
 							</div>
 						</div>
 						<div class="team__single-content">
-							<h6><a href="https://mulumesfincharity.org/all-team/arian-drobloas/">Arian Drobloas</a></h6>
+							<h6><a href="{% url 'web:team' %}">Arian Drobloas</a></h6>
 							<p>Volunteer</p>
 						</div>
 					</div>
@@ -1285,7 +1285,7 @@
 							</div>
 						</div>
 						<div class="team__single-content">
-							<h6><a href="https://mulumesfincharity.org/all-team/jara-klintof/">Jara Klintof</a></h6>
+							<h6><a href="{% url 'web:team' %}">Jara Klintof</a></h6>
 							<p>Volunteer</p>
 						</div>
 					</div>
@@ -1341,7 +1341,7 @@
 							</div>
 						</div>
 						<div class="team__single-content">
-							<h6><a href="https://mulumesfincharity.org/all-team/aiden-markram/">Aiden Markram</a></h6>
+							<h6><a href="{% url 'web:team' %}">Aiden Markram</a></h6>
 							<p>Volunteer</p>
 						</div>
 					</div>
@@ -2320,7 +2320,7 @@ powerful corporate poor
                         <div class="blog__single-wrapper pb-3">
                             <div class="blog__single van-tilt">
                             <div class="blog__single-thumb">
-                                                                <a href="https://mulumesfincharity.org/mexico-and-bangladesh-help-children/">
+                                                                <a href="{% url 'web:blog_list' %}">
                                     <img decoding="async" src="{% static 'images/four-7.png' %}" alt="">
                                 </a>
                                                                 <div class="tag">
@@ -2332,10 +2332,10 @@ powerful corporate poor
                                     <p><i class="icon-message"></i>Comment (0)</p>
                                 </div>
                                 <div class="blog__single-content">
-                                    <h5><a href="https://mulumesfincharity.org/mexico-and-bangladesh-help-children/">Mexico and Bangladesh Help For Children</a></h5>
+                                    <h5><a href="{% url 'web:blog_list' %}">Mexico and Bangladesh Help For Children</a></h5>
                                 </div>
                                 <div class="blog__single-cta">
-                                    <a href="https://mulumesfincharity.org/mexico-and-bangladesh-help-children/" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
+                                    <a href="{% url 'web:blog_list' %}" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
                                 </div>
                             </div>
                                
@@ -2348,7 +2348,7 @@ powerful corporate poor
                         <div class="blog__single-wrapper pb-3">
                             <div class="blog__single van-tilt">
                             <div class="blog__single-thumb">
-                                                                <a href="https://mulumesfincharity.org/children-international-forms-partnership-with-rkd-group/">
+                                                                <a href="{% url 'web:blog_list' %}">
                                     <img decoding="async" src="{% static 'images/six-5.png' %}" alt="">
                                 </a>
                                                                 <div class="tag">
@@ -2360,10 +2360,10 @@ powerful corporate poor
                                     <p><i class="icon-message"></i>Comment (0)</p>
                                 </div>
                                 <div class="blog__single-content">
-                                    <h5><a href="https://mulumesfincharity.org/children-international-forms-partnership-with-rkd-group/">Children International Forms partnership with RKD Group</a></h5>
+                                    <h5><a href="{% url 'web:blog_list' %}">Children International Forms partnership with RKD Group</a></h5>
                                 </div>
                                 <div class="blog__single-cta">
-                                    <a href="https://mulumesfincharity.org/children-international-forms-partnership-with-rkd-group/" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
+                                    <a href="{% url 'web:blog_list' %}" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
                                 </div>
                             </div>
                                
@@ -2376,7 +2376,7 @@ powerful corporate poor
                         <div class="blog__single-wrapper pb-3">
                             <div class="blog__single van-tilt">
                             <div class="blog__single-thumb">
-                                                                <a href="https://mulumesfincharity.org/david-jones-and-country-road-support-worker-safety/">
+                                                                <a href="{% url 'web:blog_list' %}">
                                     <img decoding="async" src="{% static 'images/five-7.png' %}" alt="">
                                 </a>
                                                                 <div class="tag">
@@ -2388,10 +2388,10 @@ powerful corporate poor
                                     <p><i class="icon-message"></i>Comment (0)</p>
                                 </div>
                                 <div class="blog__single-content">
-                                    <h5><a href="https://mulumesfincharity.org/david-jones-and-country-road-support-worker-safety/">David Jones and Country Road support worker safety</a></h5>
+                                    <h5><a href="{% url 'web:blog_list' %}">David Jones and Country Road support worker safety</a></h5>
                                 </div>
                                 <div class="blog__single-cta">
-                                    <a href="https://mulumesfincharity.org/david-jones-and-country-road-support-worker-safety/" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
+                                    <a href="{% url 'web:blog_list' %}" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
                                 </div>
                             </div>
                                
@@ -2412,7 +2412,7 @@ powerful corporate poor
 	
 
 	<div class="section__cta cta">
-		<a href="https://mulumesfincharity.org/blog/" class="btn--primary">View All		<i class="fa-solid fa-arrow-right"></i></a>
+		<a href="{% url 'web:blog_list' %}" class="btn--primary">View All		<i class="fa-solid fa-arrow-right"></i></a>
 	</div>
 
 	

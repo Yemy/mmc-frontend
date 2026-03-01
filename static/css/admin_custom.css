@@ -1,0 +1,74 @@
+/* Custom Admin CSS for MMC Charity */
+
+:root {
+  --primary-blue: #00467f;
+  --secondary-yellow: #fdb813;
+  --dark-blue: #00335d;
+}
+
+/* Sidebar & Header */
+.main-sidebar {
+  background-color: var(--dark-blue) !important;
+}
+
+.brand-link {
+  background-color: var(--primary-blue) !important;
+  border-bottom: 2px solid var(--secondary-yellow) !important;
+}
+
+.main-header {
+  background-color: var(--primary-blue) !important;
+  border-bottom: none !important;
+}
+
+/* Accent colors */
+.btn-primary {
+  background-color: var(--primary-blue) !important;
+  border-color: var(--dark-blue) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--dark-blue) !important;
+}
+
+/* Highlight / Active states */
+.nav-pills .nav-link.active,
+.nav-item.menu-open > .nav-link {
+  background-color: var(--secondary-yellow) !important;
+  color: #000 !important;
+}
+
+.nav-link:hover {
+  color: var(--secondary-yellow) !important;
+}
+
+/* Card titles and headers */
+.card-primary.card-outline {
+  border-top: 3px solid var(--primary-blue) !important;
+}
+
+/* Page titles */
+.content-header h1 {
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+/* Custom login page styling */
+.login-page {
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue) 0%,
+    var(--dark-blue) 100%
+  ) !important;
+}
+
+.login-box .card {
+  border-top: 5px solid var(--secondary-yellow) !important;
+  border-radius: 10px;
+}
+
+/* Success messages etc */
+.alert-success {
+  background-color: #28a745 !important;
+  border-color: #23923d !important;
+}
