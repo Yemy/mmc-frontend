@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from .models import (
     Program, TeamMember, Testimonial, Partner, 
-    Volunteer, Document, BlogCategory, BlogPost, SiteSettings, FAQ, Event, Product, BankAccount
+    Volunteer, Document, BlogCategory, BlogPost, SiteSettings, FAQ, Event, Product, BankAccount, ThematicProgram
 )
 
 class IndexView(TemplateView):
@@ -11,7 +11,8 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['programs'] = Program.objects.filter(is_active=True)[:3]
+        context['causes'] = Program.objects.filter(is_active=True)[:3]
+        context['programs'] = ThematicProgram.objects.filter(is_active=True)[:3]
         context['testimonials'] = Testimonial.objects.all()
         context['partners'] = Partner.objects.all()
         context['latest_posts'] = BlogPost.objects.filter(status='published').order_by('-published_date')[:3]
@@ -25,14 +26,24 @@ class TeamView(ListView):
     template_name = 'team.html'
     context_object_name = 'team_members'
 
-class ProgramListView(ListView):
+class CauseListView(ListView):
     model = Program
-    template_name = 'cause.html' # Assuming cause.html is the list view
+    template_name = 'cause.html'
+    context_object_name = 'causes'
+
+class CauseDetailView(DetailView):
+    model = Program
+    template_name = 'cause-details.html'
+    context_object_name = 'cause'
+
+class ProgramListView(ListView):
+    model = ThematicProgram
+    template_name = 'programs.html'
     context_object_name = 'programs'
 
 class ProgramDetailView(DetailView):
-    model = Program
-    template_name = 'cause-details.html'
+    model = ThematicProgram
+    template_name = 'program-details.html'
     context_object_name = 'program'
 
 class ContactView(TemplateView):

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Our Programs - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<!-- Banner section -->
+<section class="common-banner">
+    <div class="container">
+       <div class="row">
+          <div class="common-banner__content text-center">
+             <span class="sub-title">
+             <i class="icon-donation"></i>Empowering Communities</span>              
+             <h2 class="title-animation">Our Programs</h2>                  
+          </div>
+       </div>
+    </div>
+    <div class="banner-bg">
+       <img src="{% static 'images/bc_banner-bg.png' %}" alt="Image">
+    </div>
+    <div class="shape">
+       <img src="{% static 'images/shape.png' %}" alt="Image">
+    </div>
+    <div class="sprade" data-aos="zoom-in" data-aos-duration="1000">
+       <img src="{% static 'images/sprade-base.png' %}" alt="Image" class="base-img">
+    </div>
+</section>
+
+<!-- Programs Section -->
+<section class="cause section-padding">
+    <div class="container">
+        <div class="row">
+            {% for p in programs %}
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                <div class="cause__slider-single h-100 d-flex flex-column">
+                    <div class="thumb">
+                        <a href="{% url 'web:program_detail' p.slug %}">
+                            {% if p.image %}
+                            <img src="{{ p.image.url }}" alt="{{ p.title }}">
+                            {% else %}
+                            <img src="{% static 'images/1.png' %}" alt="{{ p.title }}">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="content flex-grow-1">
+                        <h6><a href="{% url 'web:program_detail' p.slug %}">{{ p.title }}</a></h6>
+                        <p>{{ p.description|truncatewords:20 }}</p>
+                    </div>
+                    <div class="cause__cta mt-auto p-3 text-center">
+                        <a href="{% url 'web:program_detail' p.slug %}" class="btn--secondary">Explore Program</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No programs found.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

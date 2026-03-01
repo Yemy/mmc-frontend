@@ -74,7 +74,7 @@
 											
 					<div class="swiper-slide">
 						<div class="banner-two__slider-single">
-							<div class="banner-two__slider-bg" style="background-image:url('{% static 'images/banner-two-bg.png' %}');"></div>
+							<div class="banner-two__slider-bg" style="background-image:url('{% static "images/banner-two-bg.png" %}');"></div>
 							<div class="container">
 								<div class="row">
 									<div class="col-12 col-md-9 col-lg-7 col-xxl-6">
@@ -95,7 +95,7 @@
 											
 					<div class="swiper-slide">
 						<div class="banner-two__slider-single">
-							<div class="banner-two__slider-bg" style="background-image:url('{% static 'images/banner-one-bg.png' %}');"></div>
+							<div class="banner-two__slider-bg" style="background-image:url('{% static "images/banner-one-bg.png" %}');"></div>
 							<div class="container">
 								<div class="row">
 									<div class="col-12 col-md-9 col-lg-7 col-xxl-6">
@@ -725,45 +725,51 @@
                 <div class="cause__slider swiper">
                     <div class="swiper-wrapper">
                          
+                        {% for p in causes %}
                         <div class="swiper-slide">
                             <div class="cause__slider-inner">
                                 <div class="cause__slider-single">
                                     <div class="thumb">
-                                        <a href="{% url 'web:donate' %}">
-												<img decoding="async" src="{% static 'images/1.png' %}" alt="Image">
-											</a>
-										                                    </div>
+                                        <a href="{% url 'web:cause_detail' p.slug %}">
+                                            {% if p.image %}
+                                            <img decoding="async" src="{{ p.image.url }}" alt="{{ p.title }}">
+                                            {% else %}
+                                            <img decoding="async" src="{% static 'images/1.png' %}" alt="Image">
+                                            {% endif %}
+                                        </a>
+                                    </div>
                                     <div class="content">
-                                        <h6><a href="{% url 'web:donate' %}">Help For Food</a></h6>
-										                                        	<p>Lorem ipsum dolor sit amet, consete sadipscing elitr, sed diam nonum </p>
-										                                    </div>
-                                                                        <div class="cause__slider-cta">
+                                        <h6><a href="{% url 'web:cause_detail' p.slug %}">{{ p.title }}</a></h6>
+                                        <p>{{ p.description|truncatewords:15 }}</p>
+                                    </div>
+                                    <div class="cause__slider-cta">
                                         <div class="cause__progress progress-bar-single">
                                             <div class="cause-progress__intro">
                                             <p><span>Donation</span>
-                                                <span class="percent-value">100%</span>
+                                                <span class="percent-value">{{ p.get_percentage|floatformat:0 }}%</span>
                                             </p>
                                             </div>
                                             <div class="cause-progress__bar">
-                                            <div class="progress-bar-wrapper" data-percent="100%">
+                                            <div class="progress-bar-wrapper" data-percent="{{ p.get_percentage|floatformat:0 }}%">
                                                 <div class="progress-bar">
-                                                    <div class="progress-bar-percent">
+                                                    <div class="progress-bar-percent" style="width:{{ p.get_percentage|floatformat:0 }}%">
                                                     </div>
                                                 </div>
                                             </div>
                                             </div>
                                             <div class="cause-progress__goal">
-                                            <p>Raised: <span class="raised">491,085.00</span></p>
-                                            <p>Goal: <span class="goal">1,000.00</span></p>
+                                            <p>Raised: <span class="raised">${{ p.raised|floatformat:2 }}</span></p>
+                                            <p>Goal: <span class="goal">${{ p.goal|floatformat:2 }}</span></p>
                                             </div>
                                         </div>
                                         <div class="cause__cta">
-                                            <a href="{% url 'web:donate' %}" aria-label="donate now" title="donate now" class="btn--secondary">Donate Now</a>
+                                            <a href="{% url 'web:cause_detail' p.slug %}" aria-label="donate now" title="donate now" class="btn--secondary">Learn More</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                          
                         <div class="swiper-slide">
                             <div class="cause__slider-inner">
@@ -1594,32 +1600,38 @@
 							<div class="testimonial__slider swiper">
 								<div class="swiper-wrapper">
 										
-									<div class="swiper-slide">
-								<div class="testimonial__slider-single">
-								<div class="review">
-												<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-																				</div>
-								<div class="content">
-								<blockquote><q>Because of Mulu Mesfin Charity, I received psychosocial support and skills training that helped me rebuild my life after displacement.</q></blockquote>
-								</div>
-								<div class="author-info">
-								<div class="author-thumb">
-																							<img decoding="async" src="{% static 'images/testi_one_author.png' %}" alt="">
-																				</div>
-								<div class="author-content">
-								<h6>Program Beneficiary</h6>
-								<p>MMC Beneficiary</p>
-								</div>
-								</div>
-								<div class="quote">
-																							<img decoding="async" src="{% static 'images/testi_one_quote.png' %}" alt="">
-																				</div>
-								</div>
-								</div>
+                        {% for t in testimonials %}
+                        <div class="swiper-slide">
+                            <div class="testimonial__slider-single">
+                                <div class="review">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="content">
+                                    <blockquote><q>{{ t.quote }}</q></blockquote>
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-thumb">
+                                        {% if t.photo %}
+                                        <img decoding="async" src="{{ t.photo.url }}" alt="{{ t.name }}">
+                                        {% else %}
+                                        <img decoding="async" src="{% static 'images/testi_one_author.png' %}" alt="Author">
+                                        {% endif %}
+                                    </div>
+                                    <div class="author-content">
+                                        <h6>{{ t.name }}</h6>
+                                        <p>{{ t.role }}</p>
+                                    </div>
+                                </div>
+                                <div class="quote">
+                                    <img decoding="async" src="{% static 'images/testi_one_quote.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}<!-- REMOVE_AFTER_LOOP -->
 								
 								<div class="swiper-slide">
 								<div class="testimonial__slider-single">

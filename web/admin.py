@@ -2,8 +2,14 @@ from django.contrib import admin
 from .models import (
     SiteSettings, Program, TeamMember, Testimonial, 
     Partner, Volunteer, Document, Event, 
-    GalleryImage, BlogCategory, BlogPost, FAQ, Product, BankAccount
+    GalleryImage, BlogCategory, BlogPost, FAQ, Product, BankAccount, ThematicProgram
 )
+
+@admin.register(ThematicProgram)
+class ThematicProgramAdmin(admin.ModelAdmin):
+    list_display = ('title', 'is_active', 'created_at')
+    prepopulated_fields = {'slug': ('title',)}
+    search_fields = ('title', 'description')
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):

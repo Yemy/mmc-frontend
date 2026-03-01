@@ -51,18 +51,32 @@
                     
                     <div class="mission-vision mt-4">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="mission-box">
+                            <div class="col-md-6 mb-4">
+                                <div class="mission-box p-4 bg-light rounded">
                                     <h4>Our Mission</h4>
                                     <p>{{ site_settings.mission|linebreaks }}</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="vision-box">
+                            <div class="col-md-6 mb-4">
+                                <div class="vision-box p-4 bg-light rounded">
                                     <h4>Our Vision</h4>
                                     <p>{{ site_settings.vision|linebreaks }}</p>
                                 </div>
                             </div>
+                            <div class="col-12 mb-4">
+                                <div class="values-box p-4 bg-light rounded border-left border-primary border-4">
+                                    <h4>Our Core Values</h4>
+                                    <p>{{ site_settings.core_values|linebreaks }}</p>
+                                </div>
+                            </div>
+                            {% if site_settings.history %}
+                            <div class="col-12">
+                                <div class="history-box p-4 bg-white shadow-sm rounded">
+                                    <h4>Our History</h4>
+                                    <p>{{ site_settings.history|linebreaks }}</p>
+                                </div>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

@@ -20,13 +20,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 	font-family: 'Recoleta';
 	font-style: normal;
 	font-weight: 400;
-	src: url('{% static 'fonts/Recoleta-Regular.woff' %}') format('woff');
+	src: url("{% static 'fonts/Recoleta-Regular.woff' %}") format('woff');
 }
 @font-face {
 	font-family: 'Recoleta';
 	font-style: normal;
 	font-weight: 400;
-	src: url('{% static 'fonts/Recoleta-Regular.woff' %}') format('woff');
+	src: url("{% static 'fonts/Recoleta-Regular.woff' %}") format('woff');
 }
 /*# sourceURL=cf-frontend-style-inline-css */
 </style>
@@ -287,7 +287,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
             <div class="off-canvas d-none d-xl-block">
                 <div class="off-canvas__inner">
                     <div class="off-canvas__head">
-                        <a class="d-inline-block site-logo" href="https://mulumesfincharity.org"><img src="{% static 'images/logo.jpeg' %}" alt=""></a>                        <button aria-label="close off canvas" class="off-canvas-close">
+                        <a class="d-inline-block site-logo" href="{% url 'web:index' %}"><img src="{% static 'images/logo.jpeg' %}" alt=""></a>                        <button aria-label="close off canvas" class="off-canvas-close">
                         <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
@@ -366,30 +366,26 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
                               <div id="charifund_main_menu" class="menu-main-menu-container"><ul id="menu-main-menu" class="navbar__list"><li class="nav-short-menu menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children navbar__item navbar__item--has-children nav-fade"><a href="{% url 'web:index' %}" aria-label="dropdown menu">Home</a>
 				</li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:about' %}">About Us</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children navbar__item navbar__item--has-children nav-fade"><a href="#" aria-label="dropdown menu" >Causes</a>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children navbar__item navbar__item--has-children nav-fade"><a href="{% url 'web:causes' %}" aria-label="dropdown menu" >Causes</a>
 <ul class="navbar__sub-menu">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:programs' %}">Programs</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="https://mulumesfincharity.org/causes-02/">Causes 02</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="https://mulumesfincharity.org/cause-details/">Cause Details</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:causes' %}">Our Causes</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:donate' %}">Support a Cause</a></li>
 </ul>
 </li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children navbar__item navbar__item--has-children nav-fade"><a href="#" aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter">Programs</a>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children navbar__item navbar__item--has-children nav-fade"><a href="{% url 'web:programs' %}" aria-label="dropdown menu">Programs</a>
 <ul class="navbar__sub-menu">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="https://mulumesfincharity.org/faq/">Faq</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="https://mulumesfincharity.org/team/">Team</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-team navbar__item nav-fade"><a href="https://mulumesfincharity.org/all-team/barak-henc/">Team Details</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="https://mulumesfincharity.org/event/">Event</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="https://mulumesfincharity.org/event-details/">Event Details</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="https://mulumesfincharity.org/shop/">Shop</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom navbar__item nav-fade"><a href="https://mulumesfincharity.org/404">404</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:programs' %}">Our Programs</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:event_list' %}">Events</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:team' %}">Our Team</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:faq' %}">FAQ</a></li>
 </ul>
 </li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children navbar__item navbar__item--has-children nav-fade"><a href="#" aria-label="dropdown menu">Blog</a>
 <ul class="navbar__sub-menu">
 	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:blog_list' %}">Blog</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="https://mulumesfincharity.org/blog-grid/">Blog Grid</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="https://mulumesfincharity.org/blog-grid-02/">Blog Grid 02</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-post navbar__item nav-fade"><a href="https://mulumesfincharity.org/mexico-and-bangladesh-help-children/">Blog Details</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:blog_list' %}">Blog Grid</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:blog_list' %}">Blog Grid 02</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post navbar__item nav-fade"><a href="{% url 'web:blog_list' %}">Blog Details</a></li>
 </ul>
 </li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:contact' %}">Contact Us</a></li>
@@ -440,7 +436,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
                </div>
                <div class="mobile-menu__list"></div>
                               <div class="mobile-menu__cta nav-fade d-block d-md-none">
-                  <a href="https://mulumesfincharity.org/contact-us/" class="btn--primary ">Donate Now<i class="fa-solid fa-arrow-right"></i></a>
+                  <a href="{% url 'web:donate' %}" class="btn--primary ">Donate Now<i class="fa-solid fa-arrow-right"></i></a>
                </div>
                 
                 <div class="mobile-menu__social social nav-fade"><a href="#" target="_blank" aria-label="Share us on platform" title="platform"><i class="fab fa-facebook-f"></i></a><a href="#" target="_blank" aria-label="Share us on platform" title="platform"><i class="fab fa-twitter"></i></a><a href="#" target="_blank" aria-label="Share us on platform" title="platform"><i class="fab fa-linkedin-in"></i></a><a href="#" target="_blank" aria-label="Share us on platform" title="platform"><i class="fab fa-instagram"></i></a></div>
@@ -490,8 +486,10 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 
                 <!-- footer menu -->
                 
-<div id="nav_menu-2" class="footer-two__widget widget_nav_menu"><div class="footer-two__widget-intro"><div class="widget-content"><h5>Quick Links</h5><div class="line"><span class="large-line"></span><span class="small-line"></span><span class="small-line"></span></div><div class="menu-footer-menu-1-container"><ul id="menu-footer-menu-1" class="menu"><li id="menu-item-171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-171"><a href="{% url 'web:blog_list' %}">Blog</a></li>
-<li id="menu-item-172" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item menu-item-172"><a href="{% url 'web:index' %}" aria-current="page">Home</a></li>
+<div id="nav_menu-2" class="footer-two__widget widget_nav_menu"><div class="footer-two__widget-intro"><div class="widget-content"><h5>Quick Links</h5><div class="line"><span class="large-line"></span><span class="small-line"></span><span class="small-line"></span></div><div class="menu-footer-menu-1-container"><ul id="menu-footer-menu-1" class="menu"><li id="menu-item-172" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item menu-item-172"><a href="{% url 'web:index' %}" aria-current="page">Home</a></li>
+<li id="menu-item-171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-171"><a href="{% url 'web:about' %}">About Us</a></li>
+<li id="menu-item-173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-171"><a href="{% url 'web:causes' %}">Our Causes</a></li>
+<li id="menu-item-174" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-171"><a href="{% url 'web:programs' %}">Our Programs</a></li>
 </ul></div></div></div></div> 
 
             </div>
@@ -499,8 +497,10 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
             
              <!-- footer menu 2 -->
              
-<div id="nav_menu-3" class="footer-two__widget footer-two__widget--alternate widget_nav_menu"><div class="footer-two__widget-intro"><div class="widget-content"><h5>Our Services</h5><div class="line"><span class="large-line"></span><span class="small-line"></span><span class="small-line"></span></div><div class="menu-footer-menu-2-container"><ul id="menu-footer-menu-2" class="menu"><li id="menu-item-174" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item menu-item-174"><a href="{% url 'web:index' %}" aria-current="page">Home</a></li>
-<li id="menu-item-173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-173"><a href="{% url 'web:blog_list' %}">Blog</a></li>
+<div id="nav_menu-3" class="footer-two__widget footer-two__widget--alternate widget_nav_menu"><div class="footer-two__widget-intro"><div class="widget-content"><h5>Our Services</h5><div class="line"><span class="large-line"></span><span class="small-line"></span><span class="small-line"></span></div><div class="menu-footer-menu-2-container"><ul id="menu-footer-menu-2" class="menu"><li id="menu-item-175" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item menu-item-175"><a href="{% url 'web:event_list' %}" aria-current="page">Events</a></li>
+<li id="menu-item-176" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a href="{% url 'web:blog_list' %}">Latest News</a></li>
+<li id="menu-item-177" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-177"><a href="{% url 'web:contact' %}">Contact Us</a></li>
+<li id="menu-item-178" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-178"><a href="{% url 'web:donate' %}">Support Us</a></li>
 </ul></div></div></div></div>
             </div>
             <div class="col-12 col-md-6 col-xl-3">
