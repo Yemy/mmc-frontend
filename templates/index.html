@@ -146,8 +146,28 @@
 				</div>
 		<div class="elementor-element elementor-element-bd05c8c e-flex e-con-boxed e-con e-parent" data-id="bd05c8c" data-element_type="container" data-e-type="container" data-settings="{" background_background":"classic"}"="">
 					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-55c9ee4 elementor-widget elementor-widget-image-carousel" data-id="55c9ee4" data-element_type="widget" data-e-type="widget" data-settings="{" slides_to_show":"5","navigation":"none","image_spacing_custom":{"unit":"px","size":100,"sizes":[]},"slides_to_show_tablet":"3","autoplay":"yes","pause_on_hover":"yes","pause_on_interaction":"yes","autoplay_speed":5000,"infinite":"yes","speed":500,"image_spacing_custom_laptop":{"unit":"px","size":"","sizes":[]},"image_spacing_custom_tablet_extra":{"unit":"px","size":"","sizes":[]},"image_spacing_custom_tablet":{"unit":"px","size":"","sizes":[]},"image_spacing_custom_mobile_extra":{"unit":"px","size":"","sizes":[]},"image_spacing_custom_mobile":{"unit":"px","size":"","sizes":[]}}"="" data-widget_type="image-carousel.default">
+				<div class="elementor-element elementor-element-55c9ee4 elementor-widget elementor-widget-image-carousel" data-id="55c9ee4" data-element_type="widget" data-e-type="widget" data-settings="{" slides_to_show":"5","navigation":"none","image_spacing_custom":{"unit":"px","size":100,"sizes":[]},"slides_to_show_tablet":"3","autoplay":"yes","pause_on_hover":"no","pause_on_interaction":"no","autoplay_speed":0,"infinite":"yes","speed":5000}"="" data-widget_type="image-carousel.default">
 				<div class="elementor-widget-container">
+                    <style>
+                        .partners-header {
+                            text-align: center;
+                            margin-bottom: 40px;
+                        }
+                        .partners-header .sub-title {
+                            display: block;
+                            font-size: 18px;
+                            color: var(--givewp-primary-color, #2271b1);
+                            margin-bottom: 10px;
+                        }
+                        /* Smoother transition for carousel */
+                        .elementor-image-carousel-wrapper .swiper-wrapper {
+                            transition-timing-function: linear !important;
+                        }
+                    </style>
+                    <div class="partners-header">
+                        <span class="sub-title"><i class="fas fa-handshake"></i> Collaborations</span>
+                        <h2 class="title-animation">Our Partners</h2>
+                    </div>
 							<div class="elementor-image-carousel-wrapper swiper" role="region" aria-roledescription="carousel" aria-label="Image Carousel" dir="ltr">
 			<div class="elementor-image-carousel swiper-wrapper" aria-live="off">
 								{% for partner in partners %}
