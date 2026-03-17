@@ -1,5 +1,6 @@
 import os
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
 
 class SiteSettings(models.Model):
@@ -9,6 +10,7 @@ class SiteSettings(models.Model):
     name = models.CharField(max_length=255, default="Mulu Mesfin Charity (MMC)")
     logo = models.ImageField(upload_to='settings/', blank=True, null=True)
     favicon = models.ImageField(upload_to='settings/', blank=True, null=True)
+    donate_image = models.ImageField(upload_to='settings/', blank=True, null=True)
     
     # Contact Info
     email = models.EmailField(blank=True, null=True)
@@ -277,6 +279,22 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('web:blog_detail', kwargs={'slug': self.slug})
+
+class BlogComment(models.Model):
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=255)
+    email = models.EmailField()
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"Comment by {self.author} on {self.post.title}"
 
 class FAQ(models.Model):
     question = models.CharField(max_length=255)

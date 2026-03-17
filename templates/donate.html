@@ -29,9 +29,9 @@
 <!-- Donate Section -->
 <section class="donate-section section-padding">
     <div class="container">
-        <div class="row items-center">
+        <div class="row align-items-stretch">
             <div class="col-12 col-lg-6 mb-5 mb-lg-0">
-                <div class="donate__content">
+                <div class="donate__content h-100">
                     <div class="section__header mb-4">
                         <span class="sub-title"><i class="icon-donation"></i>Donate Now</span>
                         <h2 class="title-animation">Support Our Mission Through Bank Transfer</h2>
@@ -39,13 +39,13 @@
                     </div>
                     
                     <div class="donate__image mt-5 van-tilt">
-                        <img src="{% static 'images/about-one-img-1.png' %}" alt="Donate" class="img-fluid rounded shadow">
+                        <img src="{% if site_settings.donate_image %}{{ site_settings.donate_image.url }}{% else %}{% static 'images/2.jpg' %}{% endif %}" alt="Donate" class="img-fluid rounded shadow w-100" style="object-fit: cover; max-height: 400px;">
                     </div>
                 </div>
             </div>
 
             <div class="col-12 col-lg-6">
-                <div class="bank-accounts__wrapper p-5 bg-white shadow rounded border-top border-primary border-5">
+                <div class="bank-accounts__wrapper p-5 bg-white shadow rounded border-top border-primary border-5 h-100">
                     <h3 class="mb-4 text-center">Bank Account Details</h3>
                     <p class="text-center mb-5">Please use the following details for your bank transfer. Specify the cause you'd like to support in the transfer reference if applicable.</p>
                     
@@ -76,6 +76,31 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-12 mt-5">
+                <div class="partner-section mb-5">
+                    <div class="section__header text-center mb-4">
+                        <span class="sub-title"><i class="icon-hand-holding-heart"></i>Trusted By</span>
+                        <h3>Supported By Organizations That Care</h3>
+                    </div>
+                    <div class="partner-grid d-flex flex-wrap justify-content-center align-items-center gap-3">
+                        {% for partner in all_partners %}
+                        <div class="partner-logo-wrap text-center">
+                            <div class="partner-logo-circle">
+                                {% if partner.logo %}
+                                <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" class="partner-logo-img">
+                                {% else %}
+                                <div class="partner-logo-fallback">{{ partner.name|slice:":1" }}</div>
+                                {% endif %}
+                            </div>
+                            <p class="mt-2 mb-0">{{ partner.name }}</p>
+                        </div>
+                        {% empty %}
+                        <p class="text-center">No partner logos yet. Add partners in admin.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -91,16 +116,17 @@ function copyToClipboard(text) {
 </script>
 
 <style>
-.border-primary {
-    border-color: #00467f !important;
-}
-.border-5 {
-    border-width: 5px !important;
-}
-.bank-account__item:hover {
-    border-color: #fdb813 !important;
-    background: #fff !important;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
+.partner-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.partner-logo-wrap { width: 120px; text-align: center; }
+.partner-logo-circle { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #ddd; display: flex; justify-content: center; align-items: center; overflow: hidden; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.08); animation: float 4s ease-in-out infinite; }
+.partner-logo-img { width: 80px; height: 80px; object-fit: contain; }
+.partner-logo-fallback { width: 80px; height: 80px; border-radius: 50%; background:#00467f; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1rem; }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+
+.border-primary { border-color: #00467f !important; }
+.border-5 { border-width: 5px !important; }
+.bank-account__item:hover { border-color: #fdb813 !important; background: #fff !important; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.team-card { min-height: 450px; display:flex; flex-direction:column; transition: transform .3s ease, box-shadow .3s ease; }
+.team-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
 </style>
 {% endblock %}

@@ -153,7 +153,7 @@ html,body{font-family:Nunito Sans,sans-serif;}p,body{font-size:16px;font-weight:
         --template-bg: #ffffff;
         --template-color: #667471;
 
-        /* colors */
+        // colors
         --white: #ffffff;
         --black: #000000;
         --primary-color:#1d7cb4;
@@ -165,10 +165,10 @@ html,body{font-family:Nunito Sans,sans-serif;}p,body{font-size:16px;font-weight:
         --senary-color: #d9d9d9;
         --hover-color: #6b5103;
 
-        /* transitions */
+        // transitions
         --transition: all 0.5s ease;
 
-        /* box shadow */
+        // box shadow
         --shadow: 0px 10px 25px 0px rgba(37, 42, 52, 0.08);
         --shadow-secondary: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
         --shadow-tertiary: 0px 4px 8px 0px rgba(0, 0, 0, 0.07);
@@ -278,9 +278,9 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 			
 
 <div class="preloader">
-    <img src="images/logo.jpeg" alt="MMC Logo" class="preloader-icon-img">
-    <p class="preloader-text"><span class="blue">M</span><span class="yellow">M</span><span class="blue">C</span></p>
-</div>
+			<i class="icon-donation preloader-icon-bg"></i>
+	            <p>MMC</p>
+    </div>
 
             <!-- ==== off canvas start ==== -->
             <div class="off-canvas d-none d-xl-block">
@@ -359,10 +359,10 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
                      <div class="main-header__menu-box">
                         <nav class="navbar p-0">
                            <div class="navbar-logo">
-                           <a href="https://mulumesfincharity.org" class="navbar-logo__link"><img src="images/logo.jpeg" alt="MMC Logo"><span class="navbar-logo__text">MMC</span></a>                           </div>
+                           <a href="https://mulumesfincharity.org"><img src="images/logo.jpeg" alt=""></a>                           </div>
                            <div class="navbar__menu-wrapper">
                               <div class="navbar__menu d-none d-xl-block">                              
-                              <div id="charifund_main_menu" class="menu-main-menu-container"><ul id="menu-main-menu" class="navbar__list"><li class="nav-short-menu menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children navbar__item navbar__item--has-children nav-fade"><a href="/" aria-label="dropdown menu" >Home</a>
+                              <div id="charifund_main_menu" class="menu-main-menu-container"><ul id="menu-main-menu" class="navbar__list"><li class="nav-short-menu menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor navbar__item nav-fade"><a href="/" aria-label="home">Home</a>
 				</li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="https://mulumesfincharity.org/about-us/">About Us</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children navbar__item navbar__item--has-children nav-fade"><a href="#" aria-label="dropdown menu" >Causes</a>
@@ -407,9 +407,13 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
                            <div class="navbar__options">
                               <div class="navbar__mobile-options ">
 
-
+                                                                 <div class="search-box">
+                                    <button class="open-search" aria-label="search products" title="open search box">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                 </div>
                                 
-                                                                 <a href="https://mulumesfincharity.org/contact-us/" class="btn--primary">Donate Now<i class="fa-solid fa-arrow-right"></i></a>
+                                                                 <a href="https://mulumesfincharity.org/contact-us/" class="btn--primary d-none d-md-flex">Donate<i class="fa-solid fa-arrow-right"></i></a>
                                 
                               </div>
                               <button class="open-offcanvas-nav d-flex d-xl-none" aria-label="toggle mobile menu" title="open offcanvas menu">
@@ -431,7 +435,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
                <div class="mobile-menu__header nav-fade">
                   <div class="logo">
                  
-                    <a href="https://mulumesfincharity.org" class="navbar-logo__link"><img src="images/logo.jpeg" alt="MMC Logo"><span class="navbar-logo__text">MMC</span></a>
+                    <a href="https://mulumesfincharity.org"><img src="images/logo.jpeg" alt=""></a>
                   </div>
                   <button aria-label="close mobile menu" class="close-mobile-menu">
                   <i class="fa-solid fa-xmark"></i>
@@ -439,7 +443,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
                </div>
                <div class="mobile-menu__list"></div>
                               <div class="mobile-menu__cta nav-fade d-block d-md-none">
-                  <a href="https://mulumesfincharity.org/contact-us/" class="btn--primary ">Donate Now<i class="fa-solid fa-arrow-right"></i></a>
+                  <a href="https://mulumesfincharity.org/contact-us/" class="btn--primary ">Donate <i class="fa-solid fa-arrow-right"></i></a>
                </div>
                 
                 <div class="mobile-menu__social social nav-fade"><a href="#" target="_blank" aria-label="Share us on platform" title="platform"><i class="fab fa-facebook-f"></i></a><a href="#" target="_blank" aria-label="Share us on platform" title="platform"><i class="fab fa-twitter"></i></a><a href="#" target="_blank" aria-label="Share us on platform" title="platform"><i class="fab fa-linkedin-in"></i></a><a href="#" target="_blank" aria-label="Share us on platform" title="platform"><i class="fab fa-instagram"></i></a></div>
@@ -524,11 +528,11 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 								<div class="row">
 									<div class="col-12 col-md-9 col-lg-7 col-xxl-6">
 										<div class="banner-two__slider-content">
-										<span class="sub-title"><i class=" icon-donation"></i>Empowering Women &amp; Girls, Restoring Dignity</span>
-										<h1>Standing With <br> Those Who Need <span class="bottom-line">Support</span> Most.</h1>
+										<span class="sub-title"><i class=" icon-donation"></i>Start donating poor  people</span>
+										<h1>Giving help <br> To Those <span class="bottom-line">peoples</span>Who Need It.</h1>
 										<div class="banner__content-cta cta">
 																						<a href="https://mulumesfincharity.org/causes/" aria-label="about us" title="about us" class="btn--tertiary">Discover More <i class="fa-solid fa-arrow-right"></i></a>
-																																	<a href="https://mulumesfincharity.org/contact-us/" aria-label="contact us" title="contact us" class="btn--primary">Donate Now <i class="fa-solid fa-arrow-right"></i></a>
+																																	<a href="https://mulumesfincharity.org/contact-us/" aria-label="contact us" title="contact us" class="btn--primary">Donate <i class="fa-solid fa-arrow-right"></i></a>
 																							
 										</div>
 										</div>
@@ -545,11 +549,11 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 								<div class="row">
 									<div class="col-12 col-md-9 col-lg-7 col-xxl-6">
 										<div class="banner-two__slider-content">
-										<span class="sub-title"><i class=" icon-donation"></i>Survivor-Centered. Rights-Based. Community-Driven.</span>
-										<h1>Rebuilding Lives <br> Through <span class="bottom-line">Dignity</span> &amp; Resilience.</h1>
+										<span class="sub-title"><i class=" icon-donation"></i>Start donating poor  people</span>
+										<h1>Giving help <br> To Those <span class="bottom-line">peoples</span>Who Need It.</h1>
 										<div class="banner__content-cta cta">
 																						<a href="https://mulumesfincharity.org/causes/" aria-label="about us" title="about us" class="btn--tertiary">Discover More <i class="fa-solid fa-arrow-right"></i></a>
-																																	<a href="https://mulumesfincharity.org/contact-us/" aria-label="contact us" title="contact us" class="btn--primary">Donate Now <i class="fa-solid fa-arrow-right"></i></a>
+																																	<a href="https://mulumesfincharity.org/contact-us/" aria-label="contact us" title="contact us" class="btn--primary">Donate <i class="fa-solid fa-arrow-right"></i></a>
 																							
 										</div>
 										</div>
@@ -614,7 +618,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 							<li class="elementor-icon-list-item">
 											<span class="elementor-icon-list-icon">
 							<i aria-hidden="true" class=" icon-donation"></i>						</span>
-										<span class="elementor-icon-list-text">Empowering Vulnerable Communities</span>
+										<span class="elementor-icon-list-text">Start donating poor people</span>
 									</li>
 						</ul>
 						</div>
@@ -625,7 +629,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 	
 
 <div class="section__header p-0 m-0">
-	<h2 class="title-animation">Charity With <span>Purpose</span></h2>
+	<h2 class="title-animation">Charity With Difference</h2>
 </div>
 
 	
@@ -763,8 +767,8 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 									<i class=" icon-education"></i>
 								</div>
 								<div class="difference__single-content">
-									<h5><a href="https://mulumesfincharity.org/causes/">Education Support</a></h5>
-									<p>Providing exercise books and learning materials to displaced students affected by conflict in Tigray.</p>
+									<h5><a href="https://mulumesfincharity.org/causes/">Child Education</a></h5>
+									<p>Set up a secure and user-friendly online donation platform that accepts multiple</p>
 								</div>
 							</div>
 							</div>
@@ -777,8 +781,8 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 									<i class=" icon-food"></i>
 								</div>
 								<div class="difference__single-content">
-									<h5><a href="https://mulumesfincharity.org/causes/">sGBV Response</a></h5>
-									<p>Survivor-centered psychosocial support, legal aid, and reintegration grants for survivors of sexual and gender-based violence.</p>
+									<h5><a href="https://mulumesfincharity.org/causes/">Healthy Food</a></h5>
+									<p>Set up a secure and user-friendly online donation platform that accepts multiple</p>
 								</div>
 							</div>
 							</div>
@@ -791,8 +795,8 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 									<i class=" icon-health"></i>
 								</div>
 								<div class="difference__single-content">
-									<h5><a href="https://mulumesfincharity.org/causes/">Livelihood Recovery</a></h5>
-									<p>Rebuilding war-affected women-led businesses through training, financial support, and community-based empowerment.</p>
+									<h5><a href="https://mulumesfincharity.org/causes/">Medical Care</a></h5>
+									<p>Set up a secure and user-friendly online donation platform that accepts multiple</p>
 								</div>
 							</div>
 							</div>
@@ -907,12 +911,12 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 								</div>
 				<div class="line">
 				   
-					<img decoding="async" src="images/about_one_line_blue.png" alt="">
+					<img decoding="async" src="images/about_one_line.png" alt="">
 								</div>
 				<div class="grid-line">
 								</div>
 				<div class="vertical-text">
-					<h5>We Restore <span>Dignity</span> &amp; Empower Lives</h5>
+					<h5>We Give <span>Donations</span> to Poor People  </h5>
 				</div>
 			</div>
 		</div>
@@ -932,7 +936,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 							<li class="elementor-icon-list-item">
 											<span class="elementor-icon-list-icon">
 							<i aria-hidden="true" class=" icon-donation"></i>						</span>
-										<span class="elementor-icon-list-text">Empowering Vulnerable Communities</span>
+										<span class="elementor-icon-list-text">Start donating poor people</span>
 									</li>
 						</ul>
 						</div>
@@ -943,7 +947,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 	
 
 <div class="section__header p-0 m-0">
-	<h2 class="title-animation">Together We Restore <span>Hope</span> &amp; Build Resilience</h2>
+	<h2 class="title-animation">Helping each other can make <span>world</span> better</h2>
 </div>
 
 	
@@ -953,7 +957,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 				</div>
 				<div class="elementor-element elementor-element-6ca1c1f elementor-widget elementor-widget-heading" data-id="6ca1c1f" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-					<p class="elementor-heading-title elementor-size-default">MMC is guided by human dignity, gender equality, and social justice. We adopt a survivor-centered, rights-based approach to address sexual and gender-based violence, supporting vulnerable women, girls, and internally displaced communities in Tigray.</p>				</div>
+					<p class="elementor-heading-title elementor-size-default">Volunteering offers opportunities to develop new skills and gain valuable experience. This can include leadership, communication, project management, and teamwork skills.</p>				</div>
 				</div>
 		<div class="elementor-element elementor-element-3d2eb30 e-con-full e-flex e-con e-child" data-id="3d2eb30" data-element_type="container" data-e-type="container">
 				<div class="elementor-element elementor-element-788461d elementor-widget elementor-widget-charifund-theme-icon-box-widget" data-id="788461d" data-element_type="widget" data-e-type="widget" data-widget_type="charifund-theme-icon-box-widget.default">
@@ -968,8 +972,8 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 					<i class=" icon-make-donation"></i>
 				</div>
 				<div class="content">
-							<h6>Empowering Survivors</h6>
-							<p>Providing survivor-centered psychosocial support and skills training for women and girls affected by sGBV.</p>
+					<h6>Start helping them</h6>
+					<p>Raising awareness about the charity's mission and cause.</p>
 				</div>
 			</div>
 		</div>
@@ -993,8 +997,8 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 					<i class=" icon-support-heart"></i>
 				</div>
 				<div class="content">
-							<h6>Supporting Communities</h6>
-							<p>Delivering humanitarian aid and livelihood support to internally displaced and conflict-affected communities.</p>
+					<h6>Make Donations</h6>
+					<p>Raising awareness about the charity's mission and cause.</p>
 				</div>
 			</div>
 		</div>
@@ -1013,17 +1017,17 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 							<li class="elementor-icon-list-item">
 											<span class="elementor-icon-list-icon">
 							<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg>						</span>
-										<span class="elementor-icon-list-text">Supported 727 displaced students with educational materials in Mekelle</span>
+										<span class="elementor-icon-list-text">Helped fund 3,265 Project powerful corporate poor</span>
 									</li>
 								<li class="elementor-icon-list-item">
 											<span class="elementor-icon-list-icon">
 							<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg>						</span>
-										<span class="elementor-icon-list-text">Delivered livelihood support to 72 war-affected women in Agulae, Tigray</span>
+										<span class="elementor-icon-list-text">We give child a gift of a education</span>
 									</li>
 								<li class="elementor-icon-list-item">
 											<span class="elementor-icon-list-icon">
 							<svg aria-hidden="true" class="e-font-icon-svg e-fas-check-circle" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></svg>						</span>
-										<span class="elementor-icon-list-text">Assisted 668 individuals in Tselemti and Kolla Tembien Woredas affected by conflict</span>
+										<span class="elementor-icon-list-text">We help companies develop powerfu corporate social Responsibility</span>
 									</li>
 						</ul>
 						</div>
@@ -1093,7 +1097,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 	
 
 <div class="section__header p-0 m-0">
-	<h2 class="title-animation">Support <span>Recovery</span> &amp; Empower Lives in Need</h2>
+	<h2 class="title-animation">Help & <span>donate</span> them when they're in need</h2>
 </div>
 
 	
@@ -1484,8 +1488,8 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 							<i class=" icon-spread-love"></i>
 						</div>
 						<div class="content">
-							<span>Join us in restoring dignity and resilience for survivors</span>
-							<h3 class="title-animation">Become a Volunteer</h3>
+							<span>We give child a gift of a education</span>
+							<h3 class="title-animation">Become a volunteer?</h3>
 						</div>
 						<div class="cta-s">
 							<a href="https://mulumesfincharity.org/contact-us/" aria-label="become a volunteer" title="become a volunteer" class="btn--tertiary">Contact Now</a>
@@ -1517,8 +1521,8 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 							<i class=" icon-spread-love"></i>
 						</div>
 						<div class="content">
-							<span>Help us support sGBV survivors and displaced communities</span>
-							<h3 class="title-animation">Make a Donation</h3>
+							<span>We give child a gift of a education</span>
+							<h3 class="title-animation">Make donation to us?</h3>
 						</div>
 						<div class="cta-s">
 							<a href="https://mulumesfincharity.org/contact-us/" aria-label="make a donation" title="make a donation" class="btn--primary">Donate Now</a>
@@ -1544,7 +1548,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 		<div class="elementor-element elementor-element-3ad27dd e-con-full e-flex e-con e-child" data-id="3ad27dd" data-element_type="container" data-e-type="container">
 				<div class="elementor-element elementor-element-c9c5a8d elementor-absolute elementor-hidden-mobile_extra elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="c9c5a8d" data-element_type="widget" data-e-type="widget" data-settings="{" _position":"absolute"}"="" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img loading="lazy" decoding="async" width="118" height="124" src="images/sprade-green_blue.png" class="attachment-large size-large wp-image-41" alt="">															</div>
+															<img loading="lazy" decoding="async" width="118" height="124" src="images/sprade-green.png" class="attachment-large size-large wp-image-41" alt="">															</div>
 				</div>
 				<div class="elementor-element elementor-element-2d4a522 elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="2d4a522" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
 				<div class="elementor-widget-container">
@@ -1552,7 +1556,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 							<li class="elementor-icon-list-item">
 											<span class="elementor-icon-list-icon">
 							<i aria-hidden="true" class=" icon-donation"></i>						</span>
-										<span class="elementor-icon-list-text">Empowering Communities Through Action</span>
+										<span class="elementor-icon-list-text">Start donating poor people</span>
 									</li>
 						</ul>
 						</div>
@@ -1563,7 +1567,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 	
 
 <div class="section__header p-0 m-0">
-	<h2 class="title-animation">Meet Our Dedicated <br><span>Team</span> &amp; Volunteers</h2>
+	<h2 class="title-animation">Meet Our Volunteer<br><span>Team</span> members</h2>
 </div>
 
 	
@@ -1823,7 +1827,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-546559e elementor-absolute elementor-hidden-mobile_extra elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="546559e" data-element_type="widget" data-e-type="widget" data-settings="{" _position":"absolute"}"="" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img loading="lazy" decoding="async" width="118" height="124" src="images/sprade-green_blue.png" class="attachment-large size-large wp-image-41" alt="">															</div>
+															<img loading="lazy" decoding="async" width="118" height="124" src="images/sprade-green.png" class="attachment-large size-large wp-image-41" alt="">															</div>
 				</div>
 				<div class="elementor-element elementor-element-762caf9 elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="762caf9" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
 				<div class="elementor-widget-container">
@@ -1831,7 +1835,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 							<li class="elementor-icon-list-item">
 											<span class="elementor-icon-list-icon">
 							<i aria-hidden="true" class=" icon-donation"></i>						</span>
-										<span class="elementor-icon-list-text">Voices From Our Community</span>
+										<span class="elementor-icon-list-text">Start donating poor people</span>
 									</li>
 						</ul>
 						</div>
@@ -1842,7 +1846,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 	
 
 <div class="section__header p-0 m-0">
-	<h2 class="title-animation">Voices From <span>Those</span> <br>We Have Supported</h2>
+	<h2 class="title-animation">Our valuable <span>customer</span> <br>Awesome Feedback</h2>
 </div>
 
 	
@@ -2040,166 +2044,154 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 								<div class="swiper-wrapper">
 										
 									<div class="swiper-slide">
-								<div class="testimonial__slider-single">
-								<div class="review">
+										<div class="testimonial__slider-single">
+										<div class="review">
+																							<i class="fas fa-star"></i>
 												<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-																				</div>
-								<div class="content">
-								<blockquote><q>Because of Mulu Mesfin Charity, I received psychosocial support and skills training that helped me rebuild my life after displacement.</q></blockquote>
-								</div>
-								<div class="author-info">
-								<div class="author-thumb">
-																							<img decoding="async" src="images/testi_one_author.png" alt="">
-																				</div>
-								<div class="author-content">
-								<h6>Program Beneficiary</h6>
-								<p>MMC Beneficiary</p>
-								</div>
-								</div>
-								<div class="quote">
-																							<img decoding="async" src="images/testi_one_quote.png" alt="">
-																				</div>
-								</div>
-								</div>
-								
-								<div class="swiper-slide">
-								<div class="testimonial__slider-single">
-								<div class="review">
 												<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-																				</div>
-								<div class="content">
-								<blockquote><q>Through the support of Mulu Mesfin Charity, I received psychosocial assistance and guidance that helped me regain hope and confidence after displacement. Their compassion and respect changed my life.</q></blockquote>
-								</div>
-								<div class="author-info">
-								<div class="author-thumb">
-																							<img decoding="async" src="images/testi_one_author.png" alt="">
-																				</div>
-								<div class="author-content">
-								<h6>Female Beneficiary</h6>
-								<p>Displacement Survivor</p>
-								</div>
-								</div>
-								<div class="quote">
-																							<img decoding="async" src="images/testi_one_quote.png" alt="">
-																				</div>
-								</div>
-								</div>
-								
-								<div class="swiper-slide">
-								<div class="testimonial__slider-single">
-								<div class="review">
 												<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-																				</div>
-								<div class="content">
-								<blockquote><q>MMC listened to me without judgment and supported me when I felt completely alone. Their care helped me begin healing and rebuilding my future.</q></blockquote>
-								</div>
-								<div class="author-info">
-								<div class="author-thumb">
-																							<img decoding="async" src="images/testi_one_author.png" alt="">
-																				</div>
-								<div class="author-content">
-								<h6>sGBV Survivor</h6>
-								<p>MMC Beneficiary</p>
-								</div>
-								</div>
-								<div class="quote">
-																							<img decoding="async" src="images/testi_one_quote.png" alt="">
-																				</div>
-								</div>
-								</div>
-								
-								<div class="swiper-slide">
-								<div class="testimonial__slider-single">
-								<div class="review">
 												<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-																				</div>
-								<div class="content">
-								<blockquote><q>Mulu Mesfin Charity stood with our community during a very difficult time. Their support for displaced women and families brought dignity and relief.</q></blockquote>
-								</div>
-								<div class="author-info">
-								<div class="author-thumb">
+																					</div>
+										<div class="content">
+											<blockquote><q>Charity is the voluntary act of giving help, typically in
+                                          the form of money, time, or resources, to those in need.
+                                          Charitable organizations aim to solve social, environmental, and
+                                          economic challenges by addressing issues like poverty</q></blockquote>
+										</div>
+										<div class="author-info">
+											<div class="author-thumb">
 																							<img decoding="async" src="images/testi_one_author.png" alt="">
-																				</div>
-								<div class="author-content">
-								<h6>IDP Community Member</h6>
-								<p>Conflict-Affected Community</p>
-								</div>
-								</div>
-								<div class="quote">
+																						</div>
+											<div class="author-content">
+												<h6>Michel Smith</h6>
+												<p>Cloth Store Inc.</p>
+											</div>
+										</div>
+										<div class="quote">
 																							<img decoding="async" src="images/testi_one_quote.png" alt="">
-																				</div>
-								</div>
-								</div>
-								
-								<div class="swiper-slide">
-								<div class="testimonial__slider-single">
-								<div class="review">
+																					</div>
+										</div>
+									</div>
+										
+									<div class="swiper-slide">
+										<div class="testimonial__slider-single">
+										<div class="review">
+																							<i class="fas fa-star"></i>
 												<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-																				</div>
-								<div class="content">
-								<blockquote><q>MMC plays a vital role in supporting survivors of sexual and gender-based violence through a survivor-centered and ethical approach. Their commitment and professionalism are admirable.</q></blockquote>
-								</div>
-								<div class="author-info">
-								<div class="author-thumb">
-																							<img decoding="async" src="images/testi_one_author.png" alt="">
-																				</div>
-								<div class="author-content">
-								<h6>Health Sector Partner</h6>
-								<p>Partner Organization</p>
-								</div>
-								</div>
-								<div class="quote">
-																							<img decoding="async" src="images/testi_one_quote.png" alt="">
-																				</div>
-								</div>
-								</div>
-
-								<div class="swiper-slide">
-								<div class="testimonial__slider-single">
-								<div class="review">
 												<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-																				</div>
-								<div class="content">
-								<blockquote><q>Volunteering with MMC has been a meaningful experience. The organization truly prioritizes dignity, confidentiality, and empowerment of vulnerable women.</q></blockquote>
-								</div>
-								<div class="author-info">
-								<div class="author-thumb">
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+																					</div>
+										<div class="content">
+											<blockquote><q>Charity is the voluntary act of giving help, typically in
+                                          the form of money, time, or resources, to those in need.
+                                          Charitable organizations aim to solve social, environmental, and
+                                          economic challenges by addressing issues like poverty</q></blockquote>
+										</div>
+										<div class="author-info">
+											<div class="author-thumb">
 																							<img decoding="async" src="images/testi_one_author.png" alt="">
-																				</div>
-								<div class="author-content">
-								<h6>MMC Volunteer</h6>
-								<p>Volunteer</p>
-								</div>
-								</div>
-								<div class="quote">
+																						</div>
+											<div class="author-content">
+												<h6>Michel Smith</h6>
+												<p>Cloth Store Inc.</p>
+											</div>
+										</div>
+										<div class="quote">
 																							<img decoding="async" src="images/testi_one_quote.png" alt="">
-																				</div>
-								</div>
-								</div>
+																					</div>
+										</div>
+									</div>
+										
+									<div class="swiper-slide">
+										<div class="testimonial__slider-single">
+										<div class="review">
+																							<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+																					</div>
+										<div class="content">
+											<blockquote><q>Charity is the voluntary act of giving help, typically in
+                                          the form of money, time, or resources, to those in need.
+                                          Charitable organizations aim to solve social, environmental, and
+                                          economic challenges by addressing issues like poverty</q></blockquote>
+										</div>
+										<div class="author-info">
+											<div class="author-thumb">
+																							<img decoding="async" src="images/testi_one_author.png" alt="">
+																						</div>
+											<div class="author-content">
+												<h6>Michel Smith</h6>
+												<p>Cloth Store Inc.</p>
+											</div>
+										</div>
+										<div class="quote">
+																							<img decoding="async" src="images/testi_one_quote.png" alt="">
+																					</div>
+										</div>
+									</div>
+										
+									<div class="swiper-slide">
+										<div class="testimonial__slider-single">
+										<div class="review">
+																							<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+																					</div>
+										<div class="content">
+											<blockquote><q>Charity is the voluntary act of giving help, typically in
+                                          the form of money, time, or resources, to those in need.
+                                          Charitable organizations aim to solve social, environmental, and
+                                          economic challenges by addressing issues like poverty</q></blockquote>
+										</div>
+										<div class="author-info">
+											<div class="author-thumb">
+																							<img decoding="async" src="images/testi_one_author.png" alt="">
+																						</div>
+											<div class="author-content">
+												<h6>Michel Smith</h6>
+												<p>Cloth Store Inc.</p>
+											</div>
+										</div>
+										<div class="quote">
+																							<img decoding="async" src="images/testi_one_quote.png" alt="">
+																					</div>
+										</div>
+									</div>
+										
+									<div class="swiper-slide">
+										<div class="testimonial__slider-single">
+										<div class="review">
+																							<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+												<i class="fas fa-star"></i>
+																					</div>
+										<div class="content">
+											<blockquote><q>Charity is the voluntary act of giving help, typically in
+                                          the form of money, time, or resources, to those in need.
+                                          Charitable organizations aim to solve social, environmental, and
+                                          economic challenges by addressing issues like poverty</q></blockquote>
+										</div>
+										<div class="author-info">
+											<div class="author-thumb">
+																							<img decoding="async" src="images/testi_one_author.png" alt="">
+																						</div>
+											<div class="author-content">
+												<h6>Michel Smith</h6>
+												<p>Cloth Store Inc.</p>
+											</div>
+										</div>
+										<div class="quote">
+																							<img decoding="async" src="images/testi_one_quote.png" alt="">
+																					</div>
+										</div>
+									</div>
 																	</div>
 							</div>
 							</div>
@@ -2474,7 +2466,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-ffc3da1 elementor-absolute elementor-hidden-laptop elementor-hidden-tablet_extra elementor-hidden-tablet elementor-hidden-mobile_extra elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="ffc3da1" data-element_type="widget" data-e-type="widget" data-settings="{" _position":"absolute"}"="" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img loading="lazy" decoding="async" width="177" height="174" src="images/spade-green-two_blue.png" class="attachment-large size-large wp-image-2814" alt="">															</div>
+															<img loading="lazy" decoding="async" width="177" height="174" src="images/spade-green-two.png" class="attachment-large size-large wp-image-2814" alt="">															</div>
 				</div>
 				<div class="elementor-element elementor-element-96e30b8 elementor-absolute elementor-hidden-laptop elementor-hidden-tablet_extra elementor-hidden-tablet elementor-hidden-mobile_extra elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="96e30b8" data-element_type="widget" data-e-type="widget" data-settings="{" _position":"absolute"}"="" data-widget_type="image.default">
 				<div class="elementor-widget-container">
@@ -2532,7 +2524,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 	
 
 <div class="section__header p-0 m-0">
-	<h2 class="title-animation">Donate Now<span>Support</span> to Make Difference way</h2>
+	<h2 class="title-animation">Donate <span>Support</span> to Make Difference way</h2>
 </div>
 
 	
@@ -2945,7 +2937,7 @@ powerful corporate poor
                 <div class="col-12 col-lg-6">
                 <div class="footer-two__copyright-inner text-center text-lg-start">
                     <p>
-                    Copyright © Mulu Mesfin Charity All Rights Reserved.  Developed By <a href="https://www.adeytechnologies.com">Adey Technologies</a>                  </p>
+                    Copyright © Mulu Mesfin Charity All Rights Reserved.                    </p>
                 </div>
                 </div>
                 <div class="col-12 col-lg-6">

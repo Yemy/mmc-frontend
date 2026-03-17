@@ -32,7 +32,7 @@
         <div class="row">
             {% for member in team_members %}
             <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="team__single-wrapper">
+                <div class="team__single-wrapper team-card" data-aos="fade-up" data-aos-duration="800">
                     <div class="team__single van-tilt">
                         <div class="team__single-thumb">
                             {% if member.photo %}
@@ -77,4 +77,16 @@
         </div>
     </div>
 </section>
+
+<style>
+.team__single-wrapper { min-height: 100%; }
+.team__single-content { text-align: center; }
+.team__single-thumb img { border-radius: 10px; }
+.team__single { border-radius: 16px; overflow: hidden; background: #fff; }
+.team__single-content h6 { margin-top: 1rem; margin-bottom: .3rem; }
+.team__single-content p { margin-bottom: .5rem; color: #555; }
+.team-card { height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.team-card .team__single-thumb { width: 100%; height: 260px; overflow: hidden; }
+.team-card .team__single-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+</style>
 {% endblock %}

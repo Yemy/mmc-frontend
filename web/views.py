@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from .models import (
     Program, TeamMember, Testimonial, Partner, 
-    Volunteer, Document, BlogCategory, BlogPost, SiteSettings, FAQ, Event, Product, BankAccount, ThematicProgram
+    Volunteer, Document, BlogCategory, BlogPost, BlogComment, SiteSettings, FAQ, Event, Product, BankAccount, ThematicProgram
 )
 
 class IndexView(TemplateView):
@@ -87,6 +87,20 @@ class BlogDetailView(DetailView):
     model = BlogPost
     template_name = 'blog-details.html'
     context_object_name = 'post'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comments'] = self.object.comments.all()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        author = request.POST.get('author', '').strip()
+        email = request.POST.get('email', '').strip()
+        content = request.POST.get('comment', '').strip()
+        if author and email and content:
+            BlogComment.objects.create(post=self.object, author=author, email=email, content=content)
+        return redirect(self.object.get_absolute_url())
 
 class FAQView(ListView):
     model = FAQ
