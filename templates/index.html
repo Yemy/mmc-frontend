@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cache %}
 
 {% block title %}Local NGO in Tigray & Mekelle - Mulu Mesfin Charity (MMC){% endblock %}
 
@@ -136,19 +137,19 @@
 			</div>
 			<div class="shape">
 			   
-				<img decoding="async" src="{% static 'images/shape.png' %}" alt="Decorative shape">
+				<img decoding="async" src="{% static 'images/shape.png' %}" alt="Decorative shape" loading="lazy">
 						</div>
 			<div class="shape-left" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
 			   
-				<img decoding="async" src="{% static 'images/banner-one-left-shape.png' %}" alt="Banner decorative background shape">
+				<img decoding="async" src="{% static 'images/banner-one-left-shape.png' %}" alt="Banner decorative background shape" loading="lazy">
 						</div>
 			<div class="sprade-shape">
 			   
-				<img decoding="async" class="base-img" data-aos="zoom-in" data-aos-duration="1000" src="{% static 'images/sprade-base.png' %}" alt="Sprade Base">
+				<img decoding="async" class="base-img" data-aos="zoom-in" data-aos-duration="1000" src="{% static 'images/sprade-base.png' %}" alt="Sprade Base" loading="lazy">
 						</div>
 			<div class="unity">
 			   
-				<img decoding="async" src="{% static 'images/unity.png' %}" alt="Unity and support icon">
+				<img decoding="async" src="{% static 'images/unity.png' %}" alt="Unity and support icon" loading="lazy">
 						</div>
 		</section>
 					</div>
@@ -180,19 +181,21 @@
                     </div>
 							<div class="elementor-image-carousel-wrapper swiper" role="region" aria-roledescription="carousel" aria-label="Image Carousel" dir="ltr">
 			<div class="elementor-image-carousel swiper-wrapper" aria-live="off">
+                                {% cache 3600 partners_carousel %}
 								{% for partner in partners %}
 								<div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="{{ forloop.counter }} of {{ partners.count }}">
 									<figure class="swiper-slide-inner">
 										{% if partner.website_url %}
 										<a href="{{ partner.website_url }}" target="_blank">
 										{% endif %}
-										<img decoding="async" class="swiper-slide-image" src="{{ partner.logo.url }}" alt="{{ partner.name }}">
+										<img decoding="async" class="swiper-slide-image" src="{{ partner.logo.url }}" alt="{{ partner.name }}" loading="lazy">
 										{% if partner.website_url %}
 										</a>
 										{% endif %}
 									</figure>
 								</div>
 								{% endfor %}
+                                {% endcache %}
 							</div>
 							
 									</div>
@@ -767,7 +770,7 @@
             <div class="cause__slider-wrapper">
                 <div class="cause__slider swiper">
                     <div class="swiper-wrapper">
-                         
+                         {% cache 3600 causes_slider %}
                         {% for p in causes %}
                         <div class="swiper-slide">
                             <div class="cause__slider-inner">
@@ -775,9 +778,9 @@
                                     <div class="thumb">
                                         <a href="{% url 'web:cause_detail' p.slug %}">
                                             {% if p.image %}
-                                            <img decoding="async" src="{{ p.image.url }}" alt="{{ p.title }}">
+                                            <img decoding="async" src="{{ p.image.url }}" alt="{{ p.title }}" loading="lazy">
                                             {% else %}
-                                            <img decoding="async" src="{% static 'images/1.png' %}" alt="Image">
+                                            <img decoding="async" src="{% static 'images/1.png' %}" alt="Image" loading="lazy">
                                             {% endif %}
                                         </a>
                                     </div>
@@ -813,6 +816,7 @@
                             </div>
                         </div>
                         {% endfor %}
+                        {% endcache %}
                          
                         <div class="swiper-slide">
                             <div class="cause__slider-inner">
@@ -1576,6 +1580,7 @@
 							<div class="testimonial__slider swiper">
 								<div class="swiper-wrapper">
 										
+                        {% cache 3600 testimonials_slider %}
                         {% for t in testimonials %}
                         <div class="swiper-slide">
                             <div class="testimonial__slider-single">
@@ -1592,9 +1597,9 @@
                                 <div class="author-info">
                                     <div class="author-thumb">
                                         {% if t.photo %}
-                                        <img decoding="async" src="{{ t.photo.url }}" alt="{{ t.name }}">
+                                        <img decoding="async" src="{{ t.photo.url }}" alt="{{ t.name }}" loading="lazy">
                                         {% else %}
-                                        <img src="{% static 'images/default_avatar_black.png' %}" alt="Image">
+                                        <img src="{% static 'images/default_avatar_black.png' %}" alt="Image" loading="lazy">
                                         {% endif %}
                                     </div>
                                     <div class="author-content">
@@ -1603,11 +1608,12 @@
                                     </div>
                                 </div>
                                 <div class="quote">
-                                    <img decoding="async" src="{% static 'images/testi_one_quote.png' %}" alt="Testi One Quote">
+                                    <img decoding="async" src="{% static 'images/testi_one_quote.png' %}" alt="Testi One Quote" loading="lazy">
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}<!-- REMOVE_AFTER_LOOP -->
+                        {% endfor %}
+                        {% endcache %}
 								
 								<div class="swiper-slide">
 								<div class="testimonial__slider-single">
@@ -2303,91 +2309,42 @@ powerful corporate poor
                     <div class="blog p-0">
                 <div class="container">
                 <div class="row gutter-30">
-                     
+                    {% cache 3600 latest_posts_fragment %}
+                    {% for post in latest_posts %}
                     <div class="col-12 col-lg-4">
                         <div class="blog__single-wrapper pb-3">
                             <div class="blog__single van-tilt">
                             <div class="blog__single-thumb">
-                                                                <a href="{% url 'web:blog_list' %}">
-                                    <img decoding="async" src="{% static 'images/four-7.png' %}" alt="Four 7">
+                                                                <a href="{{ post.get_absolute_url }}">
+                                    {% if post.thumbnail %}
+                                    <img decoding="async" src="{{ post.thumbnail.url }}" alt="{{ post.title }}" loading="lazy">
+                                    {% else %}
+                                    <img decoding="async" src="{% static 'images/four-7.png' %}" alt="{{ post.title }}" loading="lazy">
+                                    {% endif %}
                                 </a>
                                                                 <div class="tag">
-                                                                        <a href="https://mulumesfincharity.org/tag/health/"><i class="fa-solid fa-tags"></i> Health</a>                                                                    </div>
+                                                                        <a href="#"><i class="fa-solid fa-tags"></i> {{ post.category.name }}</a>                                                                    </div>
                             </div>
                             <div class="blog__single-inner">
                                 <div class="blog__single-meta">
-                                    <p><i class="icon-user"></i>admin</p>
+                                    <p><i class="icon-user"></i>{{ post.author.username }}</p>
                                     <p><i class="icon-message"></i>Comment (0)</p>
                                 </div>
                                 <div class="blog__single-content">
-                                    <h5 class="title-animation">Trauma Healing for sGBV Survivors in Tigray</h5>
+                                    <h5 class="title-animation">{{ post.title }}</h5>
                                 </div>
                                 <div class="blog__single-cta">
-                                    <a href="{% url 'web:blog_list' %}" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
+                                    <a href="{{ post.get_absolute_url }}" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
                                 </div>
                             </div>
-                               
-                                    <img decoding="async" class="spade-two" src="{% static 'images/spade.png' %}" alt="Spade">
+                                
+                                     <img decoding="async" class="spade-two" src="{% static 'images/spade.png' %}" alt="Spade" loading="lazy">
                                                             </div>
                         </div>
                     </div>
-                     
-                    <div class="col-12 col-lg-4">
-                        <div class="blog__single-wrapper pb-3">
-                            <div class="blog__single van-tilt">
-                            <div class="blog__single-thumb">
-                                                                <a href="{% url 'web:blog_list' %}">
-                                    <img decoding="async" src="{% static 'images/six-5.png' %}" alt="Six 5">
-                                </a>
-                                                                <div class="tag">
-                                                                        <a href="https://mulumesfincharity.org/tag/print/"><i class="fa-solid fa-tags"></i> Print</a>                                                                    </div>
-                            </div>
-                            <div class="blog__single-inner">
-                                <div class="blog__single-meta">
-                                    <p><i class="icon-user"></i>admin</p>
-                                    <p><i class="icon-message"></i>Comment (0)</p>
-                                </div>
-                                <div class="blog__single-content">
-                                    <h5 class="title-animation">Partnership for Ethical Documentation and Survivor Care</h5>
-                                </div>
-                                <div class="blog__single-cta">
-                                    <a href="{% url 'web:blog_list' %}" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
-                                </div>
-                            </div>
-                               
-                                    <img decoding="async" class="spade-two" src="{% static 'images/spade.png' %}" alt="Spade">
-                                                            </div>
-                        </div>
-                    </div>
-                     
-                    <div class="col-12 col-lg-4">
-                        <div class="blog__single-wrapper pb-3">
-                            <div class="blog__single van-tilt">
-                            <div class="blog__single-thumb">
-                                                                <a href="{% url 'web:blog_list' %}">
-                                    <img decoding="async" src="{% static 'images/five-7.png' %}" alt="Five 7">
-                                </a>
-                                                                <div class="tag">
-                                                                        <a href="https://mulumesfincharity.org/tag/banner-design/"><i class="fa-solid fa-tags"></i> Banner Design</a>                                                                    </div>
-                            </div>
-                            <div class="blog__single-inner">
-                                <div class="blog__single-meta">
-                                    <p><i class="icon-user"></i>admin</p>
-                                    <p><i class="icon-message"></i>Comment (0)</p>
-                                </div>
-                                <div class="blog__single-content">
-                                    <h5 class="title-animation">Emergency Case Support for Survivors in Mekelle</h5>
-                                </div>
-                                <div class="blog__single-cta">
-                                    <a href="{% url 'web:blog_list' %}" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
-                                </div>
-                            </div>
-                               
-                                    <img decoding="async" class="spade-two" src="{% static 'images/spade.png' %}" alt="Spade">
-                                                            </div>
-                        </div>
-                    </div>
-                                                            </div>
+                    {% endfor %}
+                    {% endcache %}
+                </div>
                 </div>
             </div>
         	

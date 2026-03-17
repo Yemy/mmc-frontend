@@ -49,6 +49,8 @@
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
 </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" id="givewp-campaign-blocks-fonts-css" href="https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700&display=swap&ver=6.9.1" type="text/css" media="all">
 <style id="cf-frontend-style-inline-css" type="text/css">
 @font-face {
@@ -208,6 +210,9 @@ html,body{font-family:Nunito Sans,sans-serif;}p,body{font-size:16px;font-weight:
         --shadow: 0px 10px 25px 0px rgba(37, 42, 52, 0.08);
         --shadow-secondary: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
         --shadow-tertiary: 0px 4px 8px 0px rgba(0, 0, 0, 0.07);
+    }
+    .header-secondary {
+        background-color: var(--base-color) !important;
     }
 /*# sourceURL=custom-color-theme-inline-css */
 </style>
@@ -513,7 +518,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
             <div class="col-12 col-md-6 col-xl-3">
                 <div class="footer-two__widget" data-aos="fade-up" data-aos-duration="1000">
                 <div class="footer-two__widget-logo mylogo">
-                                            <a href="{% url 'web:index' %}"><img src="{% static 'images/logo.jpeg' %}" alt="footer-logo"></a>
+                                            <a href="{% url 'web:index' %}"><img src="{% static 'images/logo.jpeg' %}" alt="footer-logo" loading="lazy"></a>
                                     </div>
                 <div class="footer-two__widget-content">
                     <p>
@@ -578,10 +583,10 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
     </div>
 
     <div class="sprade" data-aos="zoom-in" data-aos-duration="1000">
-        <img src="{% static 'images/footer_sprade.png' %}" alt="Footer Sprade" class="base-img">
+        <img src="{% static 'images/footer_sprade.png' %}" alt="Footer Sprade" class="base-img" loading="lazy">
     </div>
     <div class="sprade-light" data-aos="zoom-in" data-aos-duration="1000">
-        <img src="{% static 'images/footer_2_sprade-light.png' %}" alt="Footer 2 Sprade Light">
+        <img src="{% static 'images/footer_2_sprade-light.png' %}" alt="Footer 2 Sprade Light" loading="lazy">
     </div>
 
     </footer>
