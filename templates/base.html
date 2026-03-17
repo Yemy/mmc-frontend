@@ -4,7 +4,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
 	<title>{% block title %}{{ site_settings.name|default:"MMC - Charity & Nonprofit" }}{% endblock %}</title>
-<meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="{% block meta_description %}Mulu Mesfin Charity (MMC) is a leading local NGO in Tigray and Mekelle, Ethiopia, dedicated to women empowerment, SGBV survivor support, and IDP assistance.{% endblock %}">
+    <meta name="keywords" content="local ngo in tigray, local ngo in mekelle, women empowerment ngo, sgbv related, idp related, women entrepreneurship, local ngo in ethiopia, local ngo in africa">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:title" content="{% block og_title %}{{ site_settings.name|default:"MMC - Charity & Nonprofit" }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Empowering women and survivors of SGBV in Tigray, Ethiopia. Join MMC in making a lasting impact.{% endblock %}">
+    <meta property="og:image" content="{% static 'images/logo.jpeg' %}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ request.build_absolute_uri }}">
+    <meta property="twitter:title" content="{% block twitter_title %}{{ site_settings.name|default:"MMC - Charity & Nonprofit" }}{% endblock %}">
+    <meta property="twitter:description" content="{% block twitter_description %}Empowering women and survivors of SGBV in Tigray, Ethiopia. Join MMC in making a lasting impact.{% endblock %}">
+    <meta property="twitter:image" content="{% static 'images/logo.jpeg' %}">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "Mulu Mesfin Charity (MMC)",
+      "url": "https://mulumesfincharity.org",
+      "logo": "https://mulumesfincharity.org{% static 'images/logo.jpeg' %}",
+      "description": "Mulu Mesfin Charity (MMC) is a local NGO in Tigray and Mekelle, Ethiopia, focused on women empowerment, SGBV support, and IDP assistance.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mekelle",
+        "addressRegion": "Tigray",
+        "addressCountry": "Ethiopia"
+      }
+    }
+    </script>
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="alternate" type="application/rss+xml" title="MMC � Feed" href="https://mulumesfincharity.org/feed/">
 <link rel="alternate" type="application/rss+xml" title="MMC � Comments Feed" href="https://mulumesfincharity.org/comments/feed/">
@@ -286,7 +321,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
             <div class="off-canvas d-none d-xl-block">
                 <div class="off-canvas__inner">
                     <div class="off-canvas__head">
-                        <a class="d-inline-block site-logo" href="{% url 'web:index' %}"><img src="{% static 'images/logo.jpeg' %}" alt=""></a>                        <button aria-label="close off canvas" class="off-canvas-close">
+                        <a class="d-inline-block site-logo" href="{% url 'web:index' %}"><img src="{% static 'images/logo.jpeg' %}" alt="Logo"></a>                        <button aria-label="close off canvas" class="off-canvas-close">
                         <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
@@ -543,10 +578,10 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
     </div>
 
     <div class="sprade" data-aos="zoom-in" data-aos-duration="1000">
-        <img src="{% static 'images/footer_sprade.png' %}" alt="" class="base-img">
+        <img src="{% static 'images/footer_sprade.png' %}" alt="Footer Sprade" class="base-img">
     </div>
     <div class="sprade-light" data-aos="zoom-in" data-aos-duration="1000">
-        <img src="{% static 'images/footer_2_sprade-light.png' %}" alt="">
+        <img src="{% static 'images/footer_2_sprade-light.png' %}" alt="Footer 2 Sprade Light">
     </div>
 
     </footer>
