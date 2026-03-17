@@ -84,8 +84,8 @@
                                 </div>
                             </div>
                             <div class="cause-progress__goal">
-                                <p>Raised: <span class="raised-val">${{ cause.raised|default:"0" }}</span></p>
-                                <p>Goal: <span class="goal-val">${{ cause.goal|default:"0" }}</span></p>
+                                <p>Raised: <span class="raised-val">{{ cause.raised|default:"0" }}</span></p>
+                                <p>Goal: <span class="goal-val">{{ cause.goal|default:"0" }}</span></p>
                             </div>
                         </div>
                         <a href="{% url 'web:donate' %}" class="btn--primary w-100 text-center">Donate to this cause <i class="fa-solid fa-arrow-right"></i></a>

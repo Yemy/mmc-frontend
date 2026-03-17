@@ -68,10 +68,10 @@
                         <h5 class="mb-2"><a href="#" class="text-dark">{{ product.name }}</a></h5>
                         <div class="price fw-bold text-primary">
                             {% if product.sale_price %}
-                            <span class="text-muted text-decoration-line-through me-2">${{ product.price }}</span>
-                            <span>${{ product.sale_price }}</span>
+                            <span class="text-muted text-decoration-line-through me-2">{{ product.price }}</span>
+                            <span>{{ product.sale_price }}</span>
                             {% else %}
-                            <span>${{ product.price }}</span>
+                            <span>{{ product.price }}</span>
                             {% endif %}
                         </div>
                     </div>
