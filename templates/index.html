@@ -853,7 +853,7 @@
 											</a>
 										                                    </div>
                                     <div class="content">
-                                        <h6><a href="{% url 'web:donate' %}">Children we work with</a></h6>
+                                        <h6><a href="{% url 'web:donate' %}">Women we work with</a></h6>
 										                                        	<p>Lorem ipsum dolor sit amet, consete sadipscing elitr, sed diam nonum </p>
 										                                    </div>
                                                                         <div class="cause__slider-cta">
@@ -973,7 +973,7 @@
 											</a>
 										                                    </div>
                                     <div class="content">
-                                        <h6><a href="{% url 'web:donate' %}">People & Child Trouble</a></h6>
+                                        <h6><a href="{% url 'web:donate' %}">Women & sGBV Survivors</a></h6>
 										                                        	<p>Lorem ipsum dolor sit amet, consete sadipscing elitr, sed diam nonum </p>
 										                                    </div>
                                                                         <div class="cause__slider-cta">
@@ -1094,7 +1094,7 @@
 				<div class="col-12 col-xl-4">
 					<div class="cta-section__center cta-section__single">
 					<div class="video-btn-wrapper">
-						<a href="https://www.youtube.com/watch?v=RvreULjnzFo" target="_blank" title="video Player" class="open-video-popup">
+						                <a href="{% static 'images/vid.mp4' %}" class="video-btn open-video-popup" title="Video Player">
 						<i class="icon-play"></i>
 						</a>
 					</div>
@@ -1596,7 +1596,7 @@
                                         {% if t.photo %}
                                         <img decoding="async" src="{{ t.photo.url }}" alt="{{ t.name }}">
                                         {% else %}
-                                        <img decoding="async" src="{% static 'images/testi_one_author.png' %}" alt="Author">
+                                        <img src="{% static 'images/default_avatar_black.png' %}" alt="Image">
                                         {% endif %}
                                     </div>
                                     <div class="author-content">
@@ -1625,7 +1625,7 @@
 								</div>
 								<div class="author-info">
 								<div class="author-thumb">
-																							<img decoding="async" src="{% static 'images/testi_one_author.png' %}" alt="">
+																							<img decoding="async" src="{% static 'images/default_avatar_black.png' %}" alt="">
 																				</div>
 								<div class="author-content">
 								<h6>Female Beneficiary</h6>
@@ -1652,7 +1652,7 @@
 								</div>
 								<div class="author-info">
 								<div class="author-thumb">
-																							<img decoding="async" src="{% static 'images/testi_one_author.png' %}" alt="">
+																							<img decoding="async" src="{% static 'images/default_avatar_black.png' %}" alt="">
 																				</div>
 								<div class="author-content">
 								<h6>sGBV Survivor</h6>
@@ -1679,7 +1679,7 @@
 								</div>
 								<div class="author-info">
 								<div class="author-thumb">
-																							<img decoding="async" src="{% static 'images/testi_one_author.png' %}" alt="">
+																							<img decoding="async" src="{% static 'images/default_avatar_black.png' %}" alt="">
 																				</div>
 								<div class="author-content">
 								<h6>IDP Community Member</h6>
@@ -1706,7 +1706,7 @@
 								</div>
 								<div class="author-info">
 								<div class="author-thumb">
-																							<img decoding="async" src="{% static 'images/testi_one_author.png' %}" alt="">
+																							<img decoding="async" src="{% static 'images/default_avatar_black.png' %}" alt="">
 																				</div>
 								<div class="author-content">
 								<h6>Health Sector Partner</h6>
@@ -1733,7 +1733,7 @@
 								</div>
 								<div class="author-info">
 								<div class="author-thumb">
-																							<img decoding="async" src="{% static 'images/testi_one_author.png' %}" alt="">
+																							<img decoding="async" src="{% static 'images/default_avatar_black.png' %}" alt="">
 																				</div>
 								<div class="author-content">
 								<h6>MMC Volunteer</h6>
@@ -1964,43 +1964,43 @@
 								
                            <div class="swiper-slide">
                               <div class="cause-content">
-                                 <h4>old people & Child trouble</h4>
-                                 <p>Child & old care</p>
+                                 <h4>Women & sGBV Survivors</h4>
+                                 <p>Empowering Women & sGBV survivors</p>
                               </div>
                            </div>
 						   	
                            <div class="swiper-slide">
                               <div class="cause-content">
-                                 <h4>old people & Child trouble</h4>
-                                 <p>Child & old care</p>
+                                 <h4>Women & sGBV Survivors</h4>
+                                 <p>Empowering Women & sGBV survivors</p>
                               </div>
                            </div>
 						   	
                            <div class="swiper-slide">
                               <div class="cause-content">
-                                 <h4>old people & Child trouble</h4>
-                                 <p>Child & old care</p>
+                                 <h4>Women & sGBV Survivors</h4>
+                                 <p>Empowering Women & sGBV survivors</p>
                               </div>
                            </div>
 						   	
                            <div class="swiper-slide">
                               <div class="cause-content">
-                                 <h4>old people & Child trouble</h4>
-                                 <p>Child & old care</p>
+                                 <h4>Women & sGBV Survivors</h4>
+                                 <p>Empowering Women & sGBV survivors</p>
                               </div>
                            </div>
 						   	
                            <div class="swiper-slide">
                               <div class="cause-content">
-                                 <h4>old people & Child trouble</h4>
-                                 <p>Child & old care</p>
+                                 <h4>Women & sGBV Survivors</h4>
+                                 <p>Empowering Women & sGBV survivors</p>
                               </div>
                            </div>
 						   	
                            <div class="swiper-slide">
                               <div class="cause-content">
-                                 <h4>old people & Child trouble</h4>
-                                 <p>Child & old care</p>
+                                 <h4>Women & sGBV Survivors</h4>
+                                 <p>Empowering Women & sGBV survivors</p>
                               </div>
                            </div>
 						                           </div>
@@ -2040,7 +2040,7 @@
 										<div class="grid-line">
 										</div>
 					<div class="video-btn-wrapper">
-						<a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" target="_blank" title="video Player" class="open-video-popup">
+						<a href="{% static 'images/vid.mp4' %}" title="video Player" class="open-video-popup">
 						<i class="icon-play"></i>
 						</a>
 					</div>
@@ -2066,7 +2066,7 @@
 							<li class="elementor-icon-list-item">
 											<span class="elementor-icon-list-icon">
 							<i aria-hidden="true" class=" icon-donation"></i>						</span>
-										<span class="elementor-icon-list-text">Start donating poor people</span>
+										<span class="elementor-icon-list-text">Support Women & Survivors</span>
 									</li>
 						</ul>
 						</div>
@@ -2275,7 +2275,7 @@ powerful corporate poor
 							<li class="elementor-icon-list-item">
 											<span class="elementor-icon-list-icon">
 							<i aria-hidden="true" class=" icon-donation"></i>						</span>
-										<span class="elementor-icon-list-text">Start donating poor people</span>
+										<span class="elementor-icon-list-text">Support Women & Survivors</span>
 									</li>
 						</ul>
 						</div>
@@ -2322,7 +2322,7 @@ powerful corporate poor
                                     <p><i class="icon-message"></i>Comment (0)</p>
                                 </div>
                                 <div class="blog__single-content">
-                                    <h5><a href="{% url 'web:blog_list' %}">Mexico and Bangladesh Help For Children</a></h5>
+                                    <h5 class="title-animation">Trauma Healing for sGBV Survivors in Tigray</h5>
                                 </div>
                                 <div class="blog__single-cta">
                                     <a href="{% url 'web:blog_list' %}" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
@@ -2350,7 +2350,7 @@ powerful corporate poor
                                     <p><i class="icon-message"></i>Comment (0)</p>
                                 </div>
                                 <div class="blog__single-content">
-                                    <h5><a href="{% url 'web:blog_list' %}">Children International Forms partnership with RKD Group</a></h5>
+                                    <h5 class="title-animation">Partnership for Ethical Documentation and Survivor Care</h5>
                                 </div>
                                 <div class="blog__single-cta">
                                     <a href="{% url 'web:blog_list' %}" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
@@ -2378,7 +2378,7 @@ powerful corporate poor
                                     <p><i class="icon-message"></i>Comment (0)</p>
                                 </div>
                                 <div class="blog__single-content">
-                                    <h5><a href="{% url 'web:blog_list' %}">David Jones and Country Road support worker safety</a></h5>
+                                    <h5 class="title-animation">Emergency Case Support for Survivors in Mekelle</h5>
                                 </div>
                                 <div class="blog__single-cta">
                                     <a href="{% url 'web:blog_list' %}" aria-label="blog details" title="blog details">Read More<i class="fa-solid fa-circle-arrow-right"></i></a>
