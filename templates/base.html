@@ -211,10 +211,34 @@ html,body{font-family:Nunito Sans,sans-serif;}p,body{font-size:16px;font-weight:
         --shadow-secondary: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
         --shadow-tertiary: 0px 4px 8px 0px rgba(0, 0, 0, 0.07);
     }
-    .header-secondary {
-        background-color: var(--base-color) !important;
-    }
-/*# sourceURL=custom-color-theme-inline-css */
+/* Remove yellow background from navbar */
+.header-secondary {
+    background-color: white !important;
+}
+
+/* Style navbar items with rounded blue background for active items */
+.navbar__item a {
+    padding: 13px 24px !important;
+    font-weight: 800 !important;
+    display: inline-block !important;
+    transition: var(--transition) !important;
+    border-radius: 50px !important;
+}
+
+/* Active/current nav item gets primary blue background */
+.navbar__item.active a,
+.navbar__item.current-menu-item a,
+.navbar__item.current_page_item a,
+.navbar__item.current-menu-ancestor a,
+.navbar__item.current_page_ancestor a {
+    background-color: var(--primary-color) !important;
+    color: var(--white) !important;
+}
+
+.navbar__item a:hover {
+    background-color: var(--primary-color) !important;
+    color: var(--white) !important;
+}/*# sourceURL=custom-color-theme-inline-css */
 </style>
 <link rel="stylesheet" id="elementor-frontend-css" href="{% static 'css/custom-frontend.min.css' %}" type="text/css" media="all">
 <link rel="stylesheet" id="elementor-post-7-css" href="{% static 'css/post-7.css' %}" type="text/css" media="all">
@@ -402,17 +426,17 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
                            <a href="https://mulumesfincharity.org" class="navbar-logo__link"><img src="{% static 'images/logo.jpeg' %}" alt="MMC Logo"><span class="navbar-logo__text">MMC</span></a>                           </div>
                            <div class="navbar__menu-wrapper">
                               <div class="navbar__menu d-none d-xl-block">                              
-                              <div id="charifund_main_menu" class="menu-main-menu-container"><ul id="menu-main-menu" class="navbar__list"><li class="nav-short-menu menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor navbar__item nav-fade"><a href="{% url 'web:index' %}" aria-label="home">Home</a>
+                              <div id="charifund_main_menu" class="menu-main-menu-container"><ul id="menu-main-menu" class="navbar__list"><li class="nav-short-menu menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor navbar__item nav-fade{% if request.resolver_match.url_name == 'index' %} active{% endif %}"><a href="{% url 'web:index' %}" aria-label="home">Home</a>
 				</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:about' %}">About Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade{% if request.resolver_match.url_name == 'about' %} active{% endif %}"><a href="{% url 'web:about' %}">About Us</a></li>
 <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children navbar__item navbar__item--has-children nav-fade"><a href="{% url 'web:causes' %}" aria-label="dropdown menu" >Causes</a>
 <ul class="navbar__sub-menu">
 	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:causes' %}">Our Causes</a></li>
 	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:donate' %}">Support a Cause</a></li>
 </ul>
 </li> -->
-<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:programs' %}">Programs</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:team' %}">Our Team</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade{% if request.resolver_match.url_name == 'programs' %} active{% endif %}"><a href="{% url 'web:programs' %}">Programs</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade{% if request.resolver_match.url_name == 'team' %} active{% endif %}"><a href="{% url 'web:team' %}">Our Team</a></li>
 
 <!-- 
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children navbar__item navbar__item--has-children nav-fade"><a href="{% url 'web:programs' %}" aria-label="dropdown menu">Programs</a>
@@ -423,7 +447,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 	<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:faq' %}">FAQ</a></li>
 </ul>
 </li> -->
-<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:blog_list' %}">Blog</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade{% if request.resolver_match.url_name == 'blog_list' %} active{% endif %}"><a href="{% url 'web:blog_list' %}">Blog</a></li>
 
 <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children navbar__item navbar__item--has-children nav-fade"><a href="#" aria-label="dropdown menu">Blog</a>
 <ul class="navbar__sub-menu">
@@ -433,7 +457,7 @@ var giveApiSettings = {"root":"https://mulumesfincharity.org/wp-json/give-api/v2
 	<li class="menu-item menu-item-type-post_type menu-item-object-post navbar__item nav-fade"><a href="{% url 'web:blog_list' %}">Blog Details</a></li>
 </ul>
 </li> -->
-<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade"><a href="{% url 'web:contact' %}">Contact Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page navbar__item nav-fade{% if request.resolver_match.url_name == 'contact' %} active{% endif %}"><a href="{% url 'web:contact' %}">Contact Us</a></li>
 </ul></div>
                               </div>
                                                                 <div class="contact-btn">
