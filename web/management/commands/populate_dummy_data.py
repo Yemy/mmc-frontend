@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from web.models import SiteSettings, Program, Testimonial, Partner, BlogCategory, BlogPost, Event, FAQ
+from web.models import SiteSettings, Program, Testimonial, Partner, BlogCategory, BlogPost, Event, FAQ, BankAccount
 from django.utils.text import slugify
 from django.utils import timezone
 from datetime import date, time
@@ -14,13 +14,18 @@ class Command(BaseCommand):
         settings, created = SiteSettings.objects.get_or_create(id=1)
         settings.name = "Mulu Mesfin Charity (MMC)"
         settings.email = "contact@mulumesfincharity.org"
-        settings.phone_1 = "+251 914 008 942"
-        settings.address = "Mekelle, Ethiopia"
+        settings.phone_1 = "0914008942"
+        settings.phone_2 = "0914746374"
+        settings.address = "300 meter from Ayder specialized hospital Adishmduhn Mekelle"
         settings.mission = (
             "To empower women and girls, prevent and respond to sexual and gender-based violence, "
             "and support internally displaced and vulnerable communities through survivor-centered, "
             "inclusive, and community-driven interventions that promote dignity, resilience, "
             "and sustainable recovery."
+        )
+        settings.history = (
+            "All projects implemented by MMC are recorded and published. "
+            "Generalized transaction total: 20M (20,000,000)."
         )
         settings.vision = (
             "A safe and empowered society where every woman and girl has access to justice, "
@@ -93,41 +98,56 @@ class Command(BaseCommand):
             },
             {
                 "title": "CRSV Research Project",
-                "description": "Identifying motivating husband decision to stay with their wives who experienced conflict related sexual violence (crsv) in Tigray.",
-                "impact_stats": "Community Research",
+                "description": "Identifying motivating husband decision to stay with their wives who experienced conflict related sexual violence (CRSV) in Tigray.",
+                "impact_stats": "Research & Advocacy",
                 "goal": 649240.00,
                 "raised": 649240.00
             },
             {
                 "title": "Medical Assessment for sGBV",
-                "description": "Arrangement of medical assessment for all sGBV in Tigray, Ethiopia. Beneficiaries include college/university students and commercial sex workers.",
+                "description": "Arrangement of medical assessment for all sGBV survivors in Tigray, Ethiopia. Beneficiaries include college/university students and commercial sex workers.",
                 "impact_stats": "535 Beneficiaries",
                 "goal": 2100000.00,
                 "raised": 2100000.00
             },
             {
                 "title": "Trauma Healing & Financial Support",
-                "description": "Providing trauma healing training and facilitating access to financial seed money support for sGBV survivors across Tigray.",
+                "description": "Providing diverse forms of assistance, trauma healing training, and financial seed money support to sGBV survivors in multiple Tigray zones.",
                 "impact_stats": "1,508 Beneficiaries",
                 "goal": 14366637.22,
                 "raised": 0
             },
             {
-                "title": "Emergency sGBV Support",
-                "description": "Providing emergency assistance and support for survivors of sexual and gender-based violence in urgent cases.",
-                "impact_stats": "100+ Survivors Supported",
+                "title": "Emergency sGBV Support (Journalists Fund)",
+                "description": "Supporting sGBV survivors for emergency cases with funding from international journalists.",
+                "impact_stats": "65 Beneficiaries",
+                "goal": 480000.00,
+                "raised": 480000.00
+            },
+            {
+                "title": "Emergency sGBV Support (Save the Children)",
+                "description": "Support for sGBV survivors in emergency cases provided through Save the Children.",
+                "impact_stats": "100 Beneficiaries",
                 "goal": 613402.77,
                 "raised": 613402.77
+            },
+            {
+                "title": "Emergency sGBV Support (Individual Humanitarians)",
+                "description": "Support for sGBV survivors in Tigray with donations collected from individual humanitarians.",
+                "impact_stats": "102 Beneficiaries",
+                "goal": 576000.00,
+                "raised": 576000.00
             }
         ]
         for p in programs_data:
-            Program.objects.get_or_create(
-                title=p["title"], 
+            Program.objects.update_or_create(
+                title=p["title"],
                 defaults={
                     "description": p["description"],
                     "impact_stats": p["impact_stats"],
                     "goal": p["goal"],
-                    "raised": p["raised"]
+                    "raised": p["raised"],
+                    "image": ""
                 }
             )
         self.stdout.write(self.style.SUCCESS("Programs added."))
@@ -137,6 +157,41 @@ class Command(BaseCommand):
         for name in partners_data:
             Partner.objects.get_or_create(name=name)
         self.stdout.write(self.style.SUCCESS("Partners added."))
+
+        # 4. Bank Accounts
+        bank_accounts_data = [
+            {
+                "bank_name": "CBE",
+                "account_name": "Sister Mulu Mesfin board led organization",
+                "account_number": "1000662578413",
+                "branch": "Adishmdhun branch",
+                "swift_code": "CBETETAA",
+                "order": 1,
+                "is_active": True
+            },
+            {
+                "bank_name": "Anbessa Bank",
+                "account_name": "Sister Mulu Mesfin board led organization",
+                "account_number": "00312790389-42",
+                "branch": "Momona branch",
+                "swift_code": "LIBSETAA",
+                "order": 2,
+                "is_active": True
+            }
+        ]
+        for b in bank_accounts_data:
+            BankAccount.objects.update_or_create(
+                bank_name=b["bank_name"],
+                account_number=b["account_number"],
+                defaults={
+                    "account_name": b["account_name"],
+                    "branch": b["branch"],
+                    "swift_code": b["swift_code"],
+                    "is_active": b["is_active"],
+                    "order": b["order"]
+                }
+            )
+        self.stdout.write(self.style.SUCCESS("Bank accounts added."))
 
         # 5. Blog Posts
         cat, _ = BlogCategory.objects.get_or_create(name="Humanitarian")

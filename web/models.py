@@ -40,6 +40,25 @@ class SiteSettings(models.Model):
         verbose_name = "Site Settings"
         verbose_name_plural = "Site Settings"
 
+    @property
+    def phone(self):
+        if self.phone_1:
+            return self.phone_1
+        return self.phone_2 or ""
+
+    @property
+    def phone_display(self):
+        phones = []
+        if self.phone_1:
+            phones.append(self.phone_1)
+        if self.phone_2:
+            phones.append(self.phone_2)
+        return " / ".join(phones) if phones else ""
+
+    @property
+    def total_transaction(self):
+        return 20000000
+
     def __str__(self):
         return self.name
 
