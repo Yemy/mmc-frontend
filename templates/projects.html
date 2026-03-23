@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Projects Implemented by MMC{% endblock %}
+{% block meta_description %}View all projects implemented by Mulu Mesfin Charity (MMC) in Tigray, Ethiopia, including donor information, budgets, and beneficiaries.{% endblock %}
+
+{% block content %}
+<!-- Banner section -->
+<section class="common-banner">
+    <div class="container">
+       <div class="row">
+          <div class="common-banner__content text-center">
+             <span class="sub-title">
+             <i class="icon-donation"></i>Our Impact</span>
+             <h2 class="title-animation">Projects Implemented</h2>
+          </div>
+       </div>
+    </div>
+    <div class="banner-bg">
+       <img src="{% static 'images/bc_banner-bg.png' %}" alt="MMC Projects Banner Background">
+    </div>
+    <div class="shape">
+       <img src="{% static 'images/shape.png' %}" alt="Decorative Banner Shape">
+    </div>
+    <div class="sprade" data-aos="zoom-in" data-aos-duration="1000">
+       <img src="{% static 'images/sprade-base.png' %}" alt="MMC Support Background Graphic" class="base-img">
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="cause section-padding">
+    <div class="container">
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-12 mb-4">
+                <div class="cause__slider-single">
+                    <div class="content">
+                        <h4>{{ project.title }}</h4>
+                        {% if project.donor %}
+                        <p><strong>Donor:</strong> {{ project.donor }}</p>
+                        {% endif %}
+                        {% if project.geographic_areas %}
+                        <p><strong>Geographic Areas:</strong> {{ project.geographic_areas }}</p>
+                        {% endif %}
+                        {% if project.budget %}
+                        <p><strong>Budget:</strong> {{ project.budget }}</p>
+                        {% endif %}
+                        {% if project.duration %}
+                        <p><strong>Duration:</strong> {{ project.duration }}</p>
+                        {% endif %}
+                        {% if project.beneficiary %}
+                        <p><strong>Beneficiary:</strong> {{ project.beneficiary }}</p>
+                        {% endif %}
+                        {% if project.status %}
+                        <p><strong>Status:</strong> {{ project.get_status_display }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No projects found.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

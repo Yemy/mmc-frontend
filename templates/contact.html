@@ -56,7 +56,8 @@
                             </div>
                             <div class="content">
                                 <h6>Phone</h6>
-                                <p><a href="tel:{{ site_settings.phone }}">{{ site_settings.phone|default:"+251 911 111 111" }}</a></p>
+                                <p><a href="tel:{{ site_settings.phone_1 }}">{{ site_settings.phone_1|default:"+251 911 111 111" }}</a></p>
+                                {% if site_settings.phone_2 %}<p><a href="tel:{{ site_settings.phone_2 }}">{{ site_settings.phone_2 }}</a></p>{% endif %}
                             </div>
                         </div>
 
